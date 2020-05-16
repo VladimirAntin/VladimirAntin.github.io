@@ -117,6 +117,9 @@ MIT
 @angular/router
 MIT
 
+angular-particle
+MIT
+
 core-js
 MIT
 Copyright (c) 2014-2018 Denis Pushkarev
