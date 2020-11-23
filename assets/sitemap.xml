@@ -16,10 +16,13 @@
     <loc>https://vladimirantin.github.io/projects</loc>
   </url>
   <url>
-    <loc>https://vladimirantin.github.io/projects/spring-core</loc>
+    <loc>https://vladimirantin.github.io/projects/ebook</loc>
   </url>
   <url>
-    <loc>https://vladimirantin.github.io/projects/ng-multiselect</loc>
+    <loc>https://vladimirantin.github.io/projects/ebook/categories</loc>
+  </url>
+  <url>
+    <loc>https://vladimirantin.github.io/projects/ebook/books</loc>
   </url>
   <url>
     <loc>https://vladimirantin.github.io/projects/ng-typed</loc>
