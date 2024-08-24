@@ -1,6 +1,6 @@
 'use client';
 import {Fragment, memo} from 'react';
-import Tag from '@/app/components/Tag.jsx';
+import Tag from '@/app/components/Tag';
 
 const motivation = {
   text: `"Any app that can be written in JavaScript,will eventually be written in JavaScript."`,

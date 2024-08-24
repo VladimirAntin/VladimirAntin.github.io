@@ -1,7 +1,7 @@
 'use client';
 
 import {memo} from 'react';
-import {cn} from '@/app/utils/CN.js';
+import {cn} from '@/app/utils/CN';
 
 const Tag = ({tagName = '', containerClass = '', className = '', startClass = '', endClass = '', children}) => {
   return (

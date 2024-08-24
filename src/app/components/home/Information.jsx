@@ -1,7 +1,7 @@
 'use client';
 import {Fragment, memo, useState} from 'react';
-import Tag from '@/app/components/Tag.jsx';
-import Typing from '@/app/components/Typing.jsx';
+import Tag from '@/app/components/Tag';
+import Typing from '@/app/components/Typing';
 const TypeState = {
   CITY: 1,
   COUNTRY: 2,
@@ -9,10 +9,11 @@ const TypeState = {
   PHP: 4,
   PYTHON: 5,
   GO: 6,
-  TYPESCRIPT: 7,
-  JAVASCRIPT: 8,
-  SE0: 9,
-  NATIVE: 10,
+  JS_BACK: 7,
+  TYPESCRIPT: 8,
+  JAVASCRIPT: 9,
+  SE0: 10,
+  NATIVE: 11,
 };
 
 const location = [
@@ -25,6 +26,7 @@ const backend = [
   {tag: 'PHP', value: 'Symfony', id: TypeState.PHP},
   {tag: 'Python', value: 'Flask', id: TypeState.PYTHON},
   {tag: 'GO lang', value: 'Fiber', id: TypeState.GO},
+  {tag: 'Javascript', value: 'NestJS', id: TypeState.JS_BACK},
 ];
 const frontend = [
   {tag: 'typescript', value: 'Angular, VueJS, ReactJS', id: TypeState.TYPESCRIPT},

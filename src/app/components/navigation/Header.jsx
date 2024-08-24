@@ -3,7 +3,7 @@ import {memo} from 'react';
 import Image from 'next/image';
 const Header = () => {
   return (
-    <header className={'flex flex-row items-center gap-2'}>
+    <header className={'flex flex-row items-center gap-2 h-[10vh]'}>
       <Image
         width={100}
         height={100}

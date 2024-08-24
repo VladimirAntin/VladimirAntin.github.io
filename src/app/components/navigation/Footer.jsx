@@ -4,7 +4,7 @@ import {memo} from 'react';
 const Footer = () => {
   const currentDate = new Date();
   return (
-    <footer className={'flex justify-center items-center my-5'}>
+    <footer className={'flex justify-center items-center h-[10vh]'}>
       <div className={'flex gap-2'}>
         <p className={'text-white'}>&copy; {currentDate.getFullYear()} Vladimir Antin and</p>
         <a

@@ -1,10 +1,10 @@
 import {Inter} from 'next/font/google';
 import './index.css';
-import Particles from '@/app/Particles.jsx';
-import Header from '@/app/components/navigation/Header.jsx';
-import {cn} from '@/app/utils/CN.js';
-import Navigation from '@/app/components/navigation/Navigation.jsx';
-import Footer from '@/app/components/navigation/Footer.jsx';
+import Particles from '@/app/Particles';
+import Header from '@/app/components/navigation/Header';
+import {cn} from '@/app/utils/CN';
+import Navigation from '@/app/components/navigation/Navigation';
+import Footer from '@/app/components/navigation/Footer';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -71,7 +71,7 @@ export default function RootLayout({children}) {
       >
         <Particles />
         <Header />
-        <main className={'flex flex-row'}>
+        <main className={'flex flex-row min-h-[80vh]'}>
           <Navigation />
           {children}
         </main>
