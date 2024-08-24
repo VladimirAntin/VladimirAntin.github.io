@@ -39,6 +39,7 @@
     "tailwindcss": "^3.4.10"
   },
   "trustedDependencies": [
-    "@tsparticles/engine"
+    "@tsparticles/engine",
+    "esbuild"
   ]
 }
