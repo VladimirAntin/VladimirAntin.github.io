@@ -1,10 +1,13 @@
+'use client';
 import Link from 'next/link';
 import {memo} from 'react';
-import HomeIcon from '@/app/components/icons/HomeIcon.jsx';
-import SkillsIcon from '@/app/components/icons/SkillsIcon.jsx';
-import ProjectsIcon from '@/app/components/icons/ProjectsIcon.jsx';
-import CVIcon from '@/app/components/icons/CVIcon.jsx';
-import AskIcon from '@/app/components/icons/AskIcon.jsx';
+import HomeIcon from '@/app/components/icons/HomeIcon';
+import SkillsIcon from '@/app/components/icons/SkillsIcon';
+import ProjectsIcon from '@/app/components/icons/ProjectsIcon';
+import CVIcon from '@/app/components/icons/CVIcon';
+import AskIcon from '@/app/components/icons/AskIcon';
+import {cn} from '@/app/utils/CN';
+import {usePathname} from 'next/navigation';
 
 const navItems = [
   {title: 'Home', href: '/', Icon: HomeIcon},
@@ -15,14 +18,16 @@ const navItems = [
 ];
 
 const Navigation = () => {
+  const pathname = usePathname();
+
   return (
-    <div className={'flex justify-center w-[20vw] mt-[100px]'}>
-      <nav className={'flex flex-col gap-10 pr-10'}>
+    <div className={'flex w-[20vw] mt-[100px]'}>
+      <nav className={'flex flex-col gap-10  w-1/2 pl-10'}>
         {navItems.map(({href, title, Icon}, idx) => (
           <Link
             href={href}
             key={'nav-item-' + idx}
-            className={'flex gap-1 text-white group h-[48px] justify-center items-center'}
+            className={cn('flex gap-1 text-white group h-[48px] justify-center items-center', {'border-b-4 border-b-white pb-4': pathname === href})}
           >
             <div className={'group-hover:hidden'}>
               <Icon
