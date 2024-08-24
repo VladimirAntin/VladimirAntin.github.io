@@ -16,8 +16,8 @@ const navItems = [
 
 const Navigation = () => {
   return (
-    <div className={'flex justify-start w-[20vw] mt-[100px]'}>
-      <nav className={'flex flex-col gap-10 pl-[50px]'}>
+    <div className={'flex justify-center w-[20vw] mt-[100px]'}>
+      <nav className={'flex flex-col gap-10 pr-10'}>
         {navItems.map(({href, title, Icon}, idx) => (
           <Link
             href={href}
