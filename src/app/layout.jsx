@@ -1,9 +1,10 @@
 import {Inter} from 'next/font/google';
 import './index.css';
 import Particles from '@/app/Particles.jsx';
-import Header from '@/app/components/Header.jsx';
+import Header from '@/app/components/navigation/Header.jsx';
 import {cn} from '@/app/utils/CN.js';
-import Navigation from '@/app/components/Navigation.jsx';
+import Navigation from '@/app/components/navigation/Navigation.jsx';
+import Footer from '@/app/components/navigation/Footer.jsx';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -74,6 +75,7 @@ export default function RootLayout({children}) {
           <Navigation />
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
