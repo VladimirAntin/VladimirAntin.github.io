@@ -1,0 +1,122 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "promise"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "no-unsafe-optional-chaining": "off",
+    "no-unused-vars": [
+      "warn"
+    ],
+    "react/display-name": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "no-unused-expressions": [
+      "warn",
+      {
+        "allowTernary": true
+      }
+    ],
+    "promise/always-return": "off",
+    "promise/no-return-wrap": "warn",
+    "promise/param-names": "warn",
+    "promise/catch-or-return": "off",
+    "promise/no-nesting": "off",
+    "promise/no-promise-in-callback": "warn",
+    "promise/no-callback-in-promise": "off",
+    "promise/avoid-new": "warn",
+    "promise/no-new-statics": "warn",
+    "promise/no-return-in-finally": "warn",
+    "promise/valid-params": "warn",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": ":matches(JSXElement, JSXFragment) > JSXExpressionContainer > LogicalExpression[operator='&&']",
+        "message": "Please use `condition ? <JSX /> : undefined`. Otherwise, there is a chance of rendering '0' instead of '' in some cases. Context: https://stackoverflow.com/q/53048037"
+      }
+    ],
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "setTimeout",
+        "message": "Avoid using timers."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "e2e/**/*.js"
+      ],
+      "rules": {
+        "no-unused-vars": [
+          "warn"
+        ],
+        "jest/expect-expect": "off",
+        "jest/no-export": "off",
+        "jest/no-standalone-expect": "off",
+        "jest/no-test-callback": "off",
+        "jest/valid-expect": "off",
+        "jest/valid-expect-in-promise": "off",
+        "no-unused-expressions": [
+          "warn",
+          {
+            "allowTernary": true
+          }
+        ],
+        "promise/always-return": "off",
+        "promise/no-return-wrap": "warn",
+        "promise/param-names": "warn",
+        "promise/catch-or-return": "off",
+        "promise/no-nesting": "off",
+        "promise/no-promise-in-callback": "warn",
+        "promise/no-callback-in-promise": "off",
+        "promise/avoid-new": "off",
+        "promise/no-new-statics": "warn",
+        "promise/no-return-in-finally": "warn",
+        "promise/valid-params": "warn",
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": ":matches(JSXElement, JSXFragment) > JSXExpressionContainer > LogicalExpression[operator='&&']",
+            "message": "Please use `condition ? <JSX /> : undefined`. Otherwise, there is a chance of rendering '0' instead of '' in some cases. Context: https://stackoverflow.com/q/53048037"
+          }
+        ],
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "setTimeout",
+            "message": "Avoid using timers."
+          }
+        ]
+      }
+    }
+  ]
+}
