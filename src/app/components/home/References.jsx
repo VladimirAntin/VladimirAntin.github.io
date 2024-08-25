@@ -17,7 +17,7 @@ const links = [
 const References = () => {
   return (
     <>
-      <p className={'text-white text-3xl text-wrap'}>{motivation.text}</p>
+      <p className={'text-white text-3xl text-wrap w-2/3'}>{motivation.text}</p>
       <p className={'text-gray-500 text-2xl mb-10'}>{motivation.author}</p>
       <div>
         <Tag

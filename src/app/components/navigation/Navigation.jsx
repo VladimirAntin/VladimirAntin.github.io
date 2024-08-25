@@ -22,20 +22,21 @@ const Navigation = () => {
 
   return (
     <div className={'flex w-[20vw] mt-[100px]'}>
-      <nav className={'flex flex-col gap-10  w-1/2 pl-10'}>
+      <nav className={'flex flex-col gap-5 w-full'}>
         {navItems.map(({href, title, Icon}, idx) => (
           <Link
             href={href}
             key={'nav-item-' + idx}
-            className={cn('flex gap-1 text-white group h-[48px] justify-center items-center', {'border-b-4 border-b-white pb-4': pathname === href})}
+            className={cn('flex gap-1 text-black group h-[56px] justify-between items-center bg-white rounded-r-full px-3 w-min hover:w-1/2', {
+              'bg-black': pathname === href,
+            })}
           >
-            <div className={'group-hover:hidden'}>
-              <Icon
-                width={48}
-                height={48}
-              />
-            </div>
-            <p className={'hidden group-hover:block'}>{title}</p>
+            <Icon
+              width={32}
+              height={32}
+              color={pathname === href ? '#fff' : '#000'}
+            />
+            <p className={cn('font-bold hidden group-hover:block animate-fade-in-left', {'text-white': pathname === href})}>{title}</p>
           </Link>
         ))}
       </nav>
