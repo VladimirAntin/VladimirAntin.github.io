@@ -1,5 +1,5 @@
 'use client';
-import {useEffect} from 'react';
+import {memo, useEffect} from 'react';
 import particlesPattern from './particles-pattern';
 import Particles, {initParticlesEngine} from '@tsparticles/react';
 import {loadSlim} from '@tsparticles/slim';
@@ -22,4 +22,4 @@ const ParticlesCp = () => {
   );
 };
 
-export default ParticlesCp;
+export default memo(ParticlesCp);
