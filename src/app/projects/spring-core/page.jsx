@@ -39,7 +39,7 @@ const SpringCorePage = () => {
 
   return (
     <div className={'w-3/5 bg-white p-5 rounded-2xl'}>
-      <h1 className="text-center m-2">./projects/spring-core</h1>
+      <h1 className="text-center text-2xl font-bold m-2">./projects/spring-core</h1>
       <Tabs
         tabs={versions}
         activeTab={version}
@@ -63,7 +63,6 @@ const SpringCorePage = () => {
               tabs={selectedVersion.content.examples}
               activeTab={example}
               onChangeTab={setExample}
-              className={'max-w-full overflow-auto'}
             />
           </div>
           <div key={'example-' + example}>
@@ -75,7 +74,6 @@ const SpringCorePage = () => {
                   tabs={selectedExample.yourCode}
                   activeTab={yourCode}
                   onChangeTab={setYourCode}
-                  className={'max-w-full overflow-auto '}
                 />
                 <div className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar'}>
                   <code>
@@ -91,7 +89,6 @@ const SpringCorePage = () => {
                   tabs={selectedExample.generator}
                   activeTab={generator}
                   onChangeTab={setGenerator}
-                  className={'max-w-full overflow-auto '}
                 />
                 <div className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar'}>
                   <code>
@@ -106,7 +103,6 @@ const SpringCorePage = () => {
                   tabs={selectedExample.docs}
                   activeTab={docs}
                   onChangeTab={setDocs}
-                  className={'max-w-full overflow-auto '}
                 />
                 <div className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar'}>
                   <code>

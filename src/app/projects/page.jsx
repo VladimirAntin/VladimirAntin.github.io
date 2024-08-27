@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NpmIcon from '@/app/components/icons/projects/NpmIcon';
 import GitlabIcon from '@/app/components/icons/projects/GitlabIcon';
+import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
 
 const projects = [
   {
@@ -29,6 +30,7 @@ const projects = [
     title: 'Ng Multiselect',
     description: 'Ng Multiselect is lib for Angular.',
     image: '/images/angular.png',
+    url: '/projects/ng-multiselect',
     links: [
       {
         href: 'https://www.npmjs.com/package/@antin502/ng-multiselect',
@@ -40,12 +42,18 @@ const projects = [
         Icon: GithubIcon,
         external: true,
       },
+      {
+        href: 'https://ng-multiselect.netlify.app/',
+        Icon: NetlifyIcon,
+        external: true,
+      },
     ],
   },
   {
     title: 'Ng Typed',
     description: 'Ng Typed is lib for portfolio in Angular 6. This is simple type-on effect component for angular websites.',
     image: '/images/angular.png',
+    url: '/projects/ng-typed',
     links: [
       {
         href: 'https://www.npmjs.com/package/ng-typed',
@@ -55,6 +63,11 @@ const projects = [
       {
         href: 'https://github.com/vladimirantin/ng-typed',
         Icon: GithubIcon,
+        external: true,
+      },
+      {
+        href: 'https://ng-typed.netlify.app/',
+        Icon: NetlifyIcon,
         external: true,
       },
     ],
