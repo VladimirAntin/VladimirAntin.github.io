@@ -51,7 +51,7 @@ export default function RootLayout({children}) {
         />
         <meta
           property="og:description"
-          content="Full Stack developer from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
+          content="Software Engineer Lead from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
         />
         <meta
           property="og:site_name"
@@ -71,7 +71,7 @@ export default function RootLayout({children}) {
       >
         <Particles />
         <Header />
-        <main className={'flex flex-row min-h-[80vh]'}>
+        <main className={'flex flex-col xl:flex-row min-h-[80vh] mx-4 xl:mx-0'}>
           <Navigation />
           {children}
         </main>

@@ -1,15 +1,65 @@
 import {memo} from 'react';
+import Link from 'next/link';
+import GitlabIcon from '@/app/components/icons/projects/GitlabIcon';
+import GithubIcon from '@/app/components/icons/projects/GithubIcon';
+import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
+import Tooltip from '@/app/components/tooltip/Tooltip';
+
+const links = [
+  {
+    href: 'https://gitlab.com/antin502/ebook',
+    Icon: GitlabIcon,
+    title: 'Gitlab',
+    external: true,
+  },
+  {
+    href: 'https://github.com/vladimirantin/ebook',
+    Icon: GithubIcon,
+    title: 'Github',
+    external: true,
+  },
+  ,
+  {
+    href: 'https://ng-multiselect.netlify.app/',
+    Icon: NetlifyIcon,
+    title: 'Netlify',
+    external: true,
+  },
+];
 
 const NgMultiSelect = () => {
   return (
-    <div className={'bg-white w-full rounded-2xl mx-2'}>
-      <h1 className={'text-center text-2xl font-bold m-2'}>./projects/ng-multiselect</h1>
+    <div className={'bg-white w-3/5 rounded-2xl mx-2 relative overflow-auto'}>
+      <div className={'flex justify-between items-center my-5 mx-2'}>
+        <div></div>
+        <h1 className={'text-center text-2xl font-bold m-2'}>./projects/ng-multiselect</h1>
+        <div className={'flex justify-end items-center'}>
+          {links.map(({href, external, Icon, title}) => (
+            <Link
+              href={href}
+              target={external ? '_blank' : undefined}
+              className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
+              key={'href-' + href}
+            >
+              <Tooltip
+                content={title}
+                className={'text-white bg-black rounded-2xl px-2 py-1'}
+              >
+                <Icon />
+              </Tooltip>
+            </Link>
+          ))}
+        </div>
+      </div>
       <iframe
         src={'https://ng-multiselect.netlify.app/'}
-        className={'w-full h-full'}
+        className={'w-full h-full border-none absolute p-0 m-0'}
       />
     </div>
   );
 };
 
+export const metadata = {
+  title: 'Vladimir Antin | Ng Multiselect',
+};
 export default memo(NgMultiSelect);

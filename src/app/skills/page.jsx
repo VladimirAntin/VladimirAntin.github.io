@@ -47,11 +47,11 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className={'flex flex-wrap gap-10 w-full'}>
+    <div className={'flex flex-col xl:flex-row flex-wrap gap-10 w-full'}>
       {skills.map(({name, Icon, pattern}, idx) => (
         <div
           key={'skills-' + idx}
-          className={'flex flex-col bg-white rounded-xl w-1/4 animate-fade-in-left grayscale hover:grayscale-0'}
+          className={'flex flex-col bg-white rounded-xl xl:w-1/4 animate-fade-in-left xl:grayscale xl:hover:grayscale-0'}
         >
           <div className={'flex flex-row gap-5 items-center p-2 mb-10'}>
             <Icon
@@ -75,5 +75,7 @@ const Skills = () => {
     </div>
   );
 };
-
+export const metadata = {
+  title: 'Vladimir Antin | Skills',
+};
 export default memo(Skills);

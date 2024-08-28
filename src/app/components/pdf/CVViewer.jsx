@@ -1,12 +1,12 @@
 'use client';
-
 import {memo, useMemo, useState} from 'react';
 import {Document, Page, pdfjs} from 'react-pdf';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
-
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 const CVViewer = () => {
   const [pageNumber, setPageNumber] = useState(1);
+  const {innerWidth: width} = window;
+  const file = useMemo(() => ({url: '/Vladimir-Antin-CV.pdf'}), []);
 
   const pages = useMemo(
     () =>
@@ -15,6 +15,7 @@ const CVViewer = () => {
           key={`page_${index + 1}`}
           renderAnnotationLayer={false}
           pageNumber={index + 1}
+          width={Math.min(width * 0.8, 800)}
           renderTextLayer={false}
         />
       )),
@@ -23,7 +24,7 @@ const CVViewer = () => {
 
   return (
     <Document
-      file={{url: '/Vladimir-Antin-CV.pdf'}}
+      file={file}
       loading={<></>}
       onLoadSuccess={({numPages}) => setPageNumber(numPages)}
     >

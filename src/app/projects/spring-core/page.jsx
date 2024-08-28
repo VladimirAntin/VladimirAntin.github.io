@@ -8,12 +8,28 @@ import v4 from '@/app/data/spring-core.v1.4';
 import {dependency, path} from '@/app/data/spring-core.const';
 import Tabs from '@/app/components/tabs/Tabs';
 import {useSearchParams} from 'next/navigation';
+import MavenIcon from '@/app/components/icons/projects/MavenIcon';
+import GithubIcon from '@/app/components/icons/projects/GithubIcon';
+import Link from 'next/link';
 
 const versions = [
   {title: 'v1.1 (Core)', content: v1, dependency: dependency('1.1'), path: path('1.1'), tabId: 'v1.1'},
   {title: 'v1.2 (AuditLog)', content: v2, dependency: dependency('1.2'), path: path('1.2'), tabId: 'v1.2'},
   {title: 'v1.3 (Extended controller)', content: v3, dependency: dependency('1.3'), path: path('1.3'), tabId: 'v1.3'},
   {title: 'v1.4 (Base security)', content: v4, dependency: dependency('1.4'), path: path('1.4'), tabId: 'v1.4'},
+];
+
+const links = [
+  {
+    href: 'https://mvnrepository.com/artifact/com.github.vladimirantin/spring-core',
+    Icon: MavenIcon,
+    external: true,
+  },
+  {
+    href: 'https://github.com/vladimirantin/spring-core',
+    Icon: GithubIcon,
+    external: true,
+  },
 ];
 
 const SpringCorePage = () => {
@@ -39,7 +55,22 @@ const SpringCorePage = () => {
 
   return (
     <div className={'w-3/5 bg-white p-5 rounded-2xl'}>
-      <h1 className="text-center text-2xl font-bold m-2">./projects/spring-core</h1>
+      <div className={'flex justify-between items-center my-5'}>
+        <div></div>
+        <h1 className="text-center text-2xl font-bold m-2">./projects/spring-core</h1>
+        <div className={'flex justify-end items-center'}>
+          {links.map(({href, external, Icon}) => (
+            <Link
+              href={href}
+              target={external ? '_blank' : undefined}
+              className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
+              key={'href-' + href}
+            >
+              <Icon />
+            </Link>
+          ))}
+        </div>
+      </div>
       <Tabs
         tabs={versions}
         activeTab={version}

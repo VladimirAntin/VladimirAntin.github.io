@@ -21,7 +21,7 @@ const Navigation = () => {
   const pathname = usePathname();
 
   return (
-    <div className={'flex w-[20vw] mt-[100px]'}>
+    <div className={'hidden xl:flex w-[20vw] mt-[100px]'}>
       <nav className={'flex flex-col gap-5 w-full'}>
         {navItems.map(({href, title, Icon}, idx) => (
           <Link

@@ -4,11 +4,11 @@ import References from '@/app/components/home/References';
 
 const Home = () => {
   return (
-    <div className={'flex w-full'}>
-      <div className={'w-1/2'}>
+    <div className={'flex flex-col items-center gap-4 xl:flex-row xl:items-start xl:gap-0 w-full'}>
+      <div className={'w-full xl:w-1/2'}>
         <Information />
       </div>
-      <div>
+      <div className={'flex flex-col items-center xl:items-start'}>
         <References />
       </div>
     </div>
