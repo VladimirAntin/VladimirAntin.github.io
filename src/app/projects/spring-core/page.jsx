@@ -1,5 +1,5 @@
 'use client';
-import {memo, useMemo, useState} from 'react';
+import {Fragment, memo, useMemo, useState} from 'react';
 import v1 from '@/app/data/spring-core.v1.1';
 import v2 from '@/app/data/spring-core.v1.2';
 import v3 from '@/app/data/spring-core.v1.3';
@@ -11,6 +11,8 @@ import {useSearchParams} from 'next/navigation';
 import MavenIcon from '@/app/components/icons/projects/MavenIcon';
 import GithubIcon from '@/app/components/icons/projects/GithubIcon';
 import Link from 'next/link';
+import {closeSnackbar, enqueueSnackbar, SnackbarProvider} from 'notistack';
+import Tooltip from '@/app/components/tooltip/Tooltip';
 
 const versions = [
   {title: 'v1.1 (Core)', content: v1, dependency: dependency('1.1'), path: path('1.1'), tabId: 'v1.1'},
@@ -33,6 +35,24 @@ const links = [
 ];
 
 const SpringCorePage = () => {
+  const copyText = (text) => {
+    navigator.clipboard.writeText(text);
+    enqueueSnackbar('Thanks! Text has been copied.', {
+      variant: 'default',
+      autoHideDuration: 4000,
+      anchorOrigin: {horizontal: 'center', vertical: 'top'},
+      action: (key) => (
+        <Fragment>
+          <button
+            onClick={() => closeSnackbar(key)}
+            className={'text-purple-600'}
+          >
+            Ok
+          </button>
+        </Fragment>
+      ),
+    });
+  };
   const version = useSearchParams().get('version') ?? versions[versions.length - 1].tabId;
   const [example, setExample] = useState(0);
   const [yourCode, setYourCode] = useState(0);
@@ -54,7 +74,8 @@ const SpringCorePage = () => {
   const selectedDocs = useMemo(() => selectedExample.docs?.find((_, id) => id === docs), [docs, selectedExample]);
 
   return (
-    <div className={'w-3/5 bg-white p-5 rounded-2xl'}>
+    <div className={' w-full xl:w-3/5 bg-white p-5 rounded-2xl'}>
+      <SnackbarProvider />
       <div className={'flex justify-between items-center my-5'}>
         <div></div>
         <h1 className="text-center text-2xl font-bold m-2">./projects/spring-core</h1>
@@ -77,18 +98,38 @@ const SpringCorePage = () => {
         url={(tabId) => `/projects/spring-core?version=${tabId}`}
       />
 
-      <div className={'flex gap-5'}>
+      <div className={'flex flex-col xl:flex-row gap-5'}>
         <div className={'flex flex-col gap-2 w-2/5'}>
           <p>Dependency</p>
           <code className="p-4">
-            <pre className="text-purple-500 cursor-pointer hover:text-blue-500 text-[10px]">{selectedVersion.dependency}</pre>
+            <Tooltip
+              content={'Copy text'}
+              className={'bg-black text-white rounded-2xl px-2 py-1'}
+            >
+              <pre
+                className="text-purple-500 cursor-pointer hover:text-blue-500 text-[10px]"
+                onClick={() => copyText(selectedVersion.dependency)}
+              >
+                {selectedVersion.dependency}
+              </pre>
+            </Tooltip>
           </code>
           <p>Processor</p>
           <code className="">
-            <pre className="text-purple-500 cursor-pointer hover:text-blue-500 text-[10px]">{selectedVersion.path}</pre>
+            <Tooltip
+              content={'Copy text'}
+              className={'bg-black text-white rounded-2xl px-2 py-1'}
+            >
+              <pre
+                className="text-purple-500 cursor-pointer hover:text-blue-500 text-[10px]"
+                onClick={() => copyText(selectedVersion.path)}
+              >
+                {selectedVersion.path}
+              </pre>
+            </Tooltip>
           </code>
         </div>
-        <div className={'w-3/5'}>
+        <div className={'w-full xl:w-3/5'}>
           <div>
             <Tabs
               tabs={selectedVersion.content.examples}
@@ -106,11 +147,19 @@ const SpringCorePage = () => {
                   activeTab={yourCode}
                   onChangeTab={setYourCode}
                 />
-                <div className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar'}>
-                  <code>
-                    <pre dangerouslySetInnerHTML={{__html: selectedYourCode?.text}} />
-                  </code>
-                </div>
+                <Tooltip
+                  content={'Copy text'}
+                  className={'bg-black text-white rounded-2xl px-2 py-1'}
+                >
+                  <div
+                    className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500 cursor-pointer'}
+                    onClick={() => copyText(selectedYourCode?.text)}
+                  >
+                    <code>
+                      <pre dangerouslySetInnerHTML={{__html: selectedYourCode?.text}} />
+                    </code>
+                  </div>
+                </Tooltip>
               </div>
             ) : null}
             {selectedExample?.generator?.length > 0 ? (
@@ -121,11 +170,19 @@ const SpringCorePage = () => {
                   activeTab={generator}
                   onChangeTab={setGenerator}
                 />
-                <div className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar'}>
-                  <code>
-                    <pre dangerouslySetInnerHTML={{__html: selectedGenerator?.text}} />
-                  </code>
-                </div>
+                <Tooltip
+                  content={'Copy text'}
+                  className={'bg-black text-white rounded-2xl px-2 py-1'}
+                >
+                  <div
+                    className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500 cursor-pointer'}
+                    onClick={() => copyText(selectedGenerator?.text)}
+                  >
+                    <code>
+                      <pre dangerouslySetInnerHTML={{__html: selectedGenerator?.text}} />
+                    </code>
+                  </div>
+                </Tooltip>
               </div>
             ) : null}
             {selectedExample?.docs?.length > 0 ? (
@@ -135,11 +192,19 @@ const SpringCorePage = () => {
                   activeTab={docs}
                   onChangeTab={setDocs}
                 />
-                <div className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar'}>
-                  <code>
-                    <pre dangerouslySetInnerHTML={{__html: selectedDocs?.text}} />
-                  </code>
-                </div>
+                <Tooltip
+                  content={'Copy text'}
+                  className={'bg-black text-white rounded-2xl px-2 py-1'}
+                >
+                  <div
+                    className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500 cursor-pointer'}
+                    onClick={() => copyText(selectedDocs?.text)}
+                  >
+                    <code>
+                      <pre dangerouslySetInnerHTML={{__html: selectedDocs?.text}} />
+                    </code>
+                  </div>
+                </Tooltip>
               </div>
             ) : null}
           </div>

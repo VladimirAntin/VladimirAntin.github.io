@@ -4,6 +4,7 @@ import NpmIcon from '@/app/components/icons/projects/NpmIcon';
 import GithubIcon from '@/app/components/icons/projects/GithubIcon';
 import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
 import Tooltip from '@/app/components/tooltip/Tooltip';
+import IframeClient from '@/app/components/IframeClient';
 
 const links = [
   {
@@ -28,7 +29,7 @@ const links = [
 
 const NgTyped = () => {
   return (
-    <div className={'bg-white w-3/5 rounded-2xl relative overflow-auto'}>
+    <div className={'bg-white w-full xl:w-3/5 rounded-2xl'}>
       <div className={'flex justify-between items-center my-5 mx-2'}>
         <div></div>
         <h1 className={'text-center text-2xl font-bold m-2'}>./projects/ng-typed</h1>
@@ -50,10 +51,7 @@ const NgTyped = () => {
           ))}
         </div>
       </div>
-      <iframe
-        src={'https://ng-typed.netlify.app/'}
-        className={'w-full border-none absolute h-full'}
-      />
+      <IframeClient src={'https://ng-typed.netlify.app/'} />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Header from '@/app/components/navigation/Header';
 import {cn} from '@/app/utils/CN';
 import Navigation from '@/app/components/navigation/Navigation';
 import Footer from '@/app/components/navigation/Footer';
+import MobileNavigation from '@/app/components/navigation/MobileNavigation';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -71,6 +72,7 @@ export default function RootLayout({children}) {
       >
         <Particles />
         <Header />
+        <MobileNavigation />
         <main className={'flex flex-col xl:flex-row min-h-[80vh] mx-4 xl:mx-0'}>
           <Navigation />
           {children}

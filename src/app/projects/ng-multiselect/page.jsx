@@ -4,6 +4,7 @@ import GitlabIcon from '@/app/components/icons/projects/GitlabIcon';
 import GithubIcon from '@/app/components/icons/projects/GithubIcon';
 import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
 import Tooltip from '@/app/components/tooltip/Tooltip';
+import IframeClient from '@/app/components/IframeClient';
 
 const links = [
   {
@@ -29,7 +30,7 @@ const links = [
 
 const NgMultiSelect = () => {
   return (
-    <div className={'bg-white w-3/5 rounded-2xl mx-2 relative overflow-auto'}>
+    <div className={'bg-white w-full xl:w-3/5 rounded-2xl mx-2'}>
       <div className={'flex justify-between items-center my-5 mx-2'}>
         <div></div>
         <h1 className={'text-center text-2xl font-bold m-2'}>./projects/ng-multiselect</h1>
@@ -51,10 +52,7 @@ const NgMultiSelect = () => {
           ))}
         </div>
       </div>
-      <iframe
-        src={'https://ng-multiselect.netlify.app/'}
-        className={'w-full h-full border-none absolute p-0 m-0'}
-      />
+      <IframeClient src={'https://ng-multiselect.netlify.app/'} />
     </div>
   );
 };
