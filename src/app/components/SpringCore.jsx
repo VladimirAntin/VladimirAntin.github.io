@@ -57,7 +57,7 @@ const SpringCore = () => {
   const selectedDocs = useMemo(() => selectedExample.docs?.find((_, id) => id === docs), [docs, selectedExample]);
 
   return (
-    <Suspense>
+    <>
       <SnackbarProvider />
       <Tabs
         tabs={versions}
@@ -177,8 +177,16 @@ const SpringCore = () => {
           </div>
         </div>
       </div>
+    </>
+  );
+};
+
+const SpringBootSuspense = () => {
+  return (
+    <Suspense>
+      <SpringCore />
     </Suspense>
   );
 };
 
-export default memo(SpringCore);
+export default memo(SpringBootSuspense);
