@@ -2,7 +2,7 @@
 import Tabs from '@/app/components/tabs/Tabs';
 import Tooltip from '@/app/components/tooltip/Tooltip';
 import {closeSnackbar, enqueueSnackbar, SnackbarProvider} from 'notistack';
-import {Fragment, memo, useMemo, useState} from 'react';
+import {Fragment, memo, Suspense, useMemo, useState} from 'react';
 import {useSearchParams} from 'next/navigation';
 import v1 from '@/app/data/spring-core.v1.1';
 import {dependency, path} from '@/app/data/spring-core.const';
@@ -57,7 +57,7 @@ const SpringCore = () => {
   const selectedDocs = useMemo(() => selectedExample.docs?.find((_, id) => id === docs), [docs, selectedExample]);
 
   return (
-    <>
+    <Suspense>
       <SnackbarProvider />
       <Tabs
         tabs={versions}
@@ -177,7 +177,7 @@ const SpringCore = () => {
           </div>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 
