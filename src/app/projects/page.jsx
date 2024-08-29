@@ -31,6 +31,27 @@ const projects = [
     ],
   },
   {
+    title: 'Personal website',
+    description: 'Personal website in Angular',
+    image: '/images/angular-website.png',
+    url: 'https://vladimirantin.netlify.app',
+    external: true,
+    links: [
+      {
+        href: 'https://gitlab.com/antin502/vladimirantin.github.io-angular',
+        Icon: GithubIcon,
+        title: 'Github',
+        external: true,
+      },
+      {
+        href: 'https://vladimirantin.netlify.app/',
+        Icon: NetlifyIcon,
+        title: 'Netlify',
+        external: true,
+      },
+    ],
+  },
+  {
     title: 'Ng Multiselect',
     description: 'Ng Multiselect is lib for Angular.',
     image: '/images/angular.png',
@@ -138,7 +159,7 @@ const ContainerImage = ({children, url, ...props}) => {
 const Projects = () => {
   return (
     <div className={'flex flex-col gap-10 w-full xl:w-3/5'}>
-      {projects.map(({title, description, image, links, url, typed}, idx) => (
+      {projects.map(({title, description, image, links, url, typed, external}, idx) => (
         <div
           key={'project-' + idx}
           className={'bg-white rounded-2xl p-4 flex justify-between gap-4'}
@@ -146,6 +167,7 @@ const Projects = () => {
           <ContainerImage
             className={'flex flex-col gap-2 border border-gray-600 bg-gray-600 rounded-2xl p-4 hover:scale-110 duration-300'}
             url={url}
+            target={external ? '_blank' : undefined}
           >
             <p className={'text-white text-2xl font-bold'}>{title}</p>
             <Image
