@@ -1,6 +1,7 @@
 'use client';
 import {memo, useMemo, useState} from 'react';
 import {Document, Page, pdfjs} from 'react-pdf';
+import {cn} from '@/app/utils/CN';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
 const CVViewer = () => {
@@ -16,6 +17,7 @@ const CVViewer = () => {
           renderAnnotationLayer={false}
           pageNumber={index + 1}
           width={Math.min(width * 0.8, 800)}
+          className={cn({'border-b-4 border-b-black': index + 1 < pageNumber})}
           renderTextLayer={false}
         />
       )),
