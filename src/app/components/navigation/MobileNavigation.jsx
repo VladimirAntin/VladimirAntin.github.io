@@ -25,7 +25,7 @@ const MobileNavigation = () => {
 
   return (
     <>
-      {opened ? <div className={'fixed inset-0 bg-fixed w-screen h-screen bg-black bg-opacity-50'} /> : null}
+      {opened ? <div className={'fixed inset-0 bg-fixed w-screen h-screen bg-black bg-opacity-80 z-40'} /> : null}
       <div
         className={cn('fixed bottom-10 right-10 flex flex-col items-end xl:hidden z-50')}
         onBlur={(e) => {
