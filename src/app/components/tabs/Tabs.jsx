@@ -1,6 +1,6 @@
 'use client';
 import {cn} from '@/app/utils/CN';
-import {memo, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {memo, useCallback, useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
 import ArrowIcon from '@/app/components/icons/ArrowIcon';
 

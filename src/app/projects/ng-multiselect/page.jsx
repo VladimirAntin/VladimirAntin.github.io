@@ -19,7 +19,6 @@ const links = [
     title: 'Github',
     external: true,
   },
-  ,
   {
     href: 'https://ng-multiselect.netlify.app/',
     Icon: NetlifyIcon,
