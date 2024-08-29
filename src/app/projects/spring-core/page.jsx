@@ -3,7 +3,7 @@ import GithubIcon from '@/app/components/icons/projects/GithubIcon';
 import Link from 'next/link';
 import Tooltip from '@/app/components/tooltip/Tooltip';
 import MavenIcon from '@/app/components/icons/projects/MavenIcon';
-import SpringCore from '@/app/projects/spring-core/SpringCore';
+import SpringCore from '@/app/components/SpringCore';
 
 const links = [
   {
