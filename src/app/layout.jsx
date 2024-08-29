@@ -52,7 +52,7 @@ export default function RootLayout({children}) {
         />
         <meta
           property="og:description"
-          content="Software Engineer Lead from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
+          content="Software Engineering Lead from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
         />
         <meta
           property="og:site_name"

@@ -46,7 +46,7 @@ const Information = () => {
       >
         <p className={'text-white pl-5 py-5 text-3xl'}>
           <Typing
-            text={'Software Engineer Lead'}
+            text={'Software Engineering Lead'}
             onDone={() => setType(TypeState.CITY)}
           />
         </p>
