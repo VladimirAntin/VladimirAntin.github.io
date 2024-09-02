@@ -8,8 +8,37 @@ import GitlabIcon from '@/app/components/icons/projects/GitlabIcon';
 import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
 import Typing from '@/app/components/Typing';
 import Tooltip from '@/app/components/tooltip/Tooltip';
+import PlayStoreIcon from '@/app/components/icons/projects/PlayStoreIcon';
+import AppleStoreIcon from '@/app/components/icons/projects/AppleStoreIcon';
 
 const projects = [
+  {
+    title: 'Dealio - marketplace',
+    description: 'Spring core is library for Spring boot framework. This is component generator.',
+    image: '/images/dealio.webp',
+    url: 'https://www.dealio.com/',
+    external: true,
+    links: [
+      {
+        href: 'https://play.google.com/store/apps/details?id=com.napokon',
+        Icon: PlayStoreIcon,
+        title: 'Play store',
+        external: true,
+      },
+      {
+        href: 'https://apps.apple.com/hr/app/dealio-tvoj-novi-oglasnik/id6478402176',
+        Icon: AppleStoreIcon,
+        title: 'Apple Store',
+        external: true,
+      },
+      {
+        href: 'https://www.dealio.com/',
+        Icon: () => <p>Website</p>,
+        title: 'Website',
+        external: true,
+      },
+    ],
+  },
   {
     title: 'Spring Core',
     description: 'Spring core is library for Spring boot framework. This is component generator.',
