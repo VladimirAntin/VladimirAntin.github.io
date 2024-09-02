@@ -14,7 +14,7 @@ import AppleStoreIcon from '@/app/components/icons/projects/AppleStoreIcon';
 const projects = [
   {
     title: 'Dealio - marketplace',
-    description: 'Spring core is library for Spring boot framework. This is component generator.',
+    description: 'Digital marketplace.',
     image: '/images/dealio.webp',
     url: 'https://www.dealio.com/',
     external: true,
