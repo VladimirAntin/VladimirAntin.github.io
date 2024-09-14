@@ -40,6 +40,21 @@ const projects = [
     ],
   },
   {
+    title: 'Low price',
+    description: '',
+    image: '/images/low-price.png',
+    url: 'https://low-price.netlify.app',
+    external: true,
+    links: [
+      {
+        href: 'https://low-price.netlify.app',
+        Icon: NetlifyIcon,
+        title: 'Netlify',
+        external: true,
+      },
+    ],
+  },
+  {
     title: 'Spring Core',
     description: 'Spring core is library for Spring boot framework. This is component generator.',
     image: '/images/java.png',
