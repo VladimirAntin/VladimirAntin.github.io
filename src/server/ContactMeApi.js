@@ -1,5 +1,3 @@
-'use server'
-
 const sendMessage = (data) => {
   const body = new URLSearchParams(data);
   return fetch('https://script.google.com/macros/s/AKfycbyeL-Jznd_db6zJ5nWI7_KTp5aItN02WTkCRsZCIWQrt-Yo2ndTQ4wSTHqNGYayCqA/exec', {
