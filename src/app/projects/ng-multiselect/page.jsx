@@ -3,8 +3,8 @@ import Link from 'next/link';
 import GitlabIcon from '@/icons/projects/GitlabIcon';
 import GithubIcon from '@/icons/projects/GithubIcon';
 import NetlifyIcon from '@/icons/projects/NetlifyIcon';
-import Tooltip from '@/app/components/tooltip/Tooltip';
-import IframeClient from '@/app/components/IframeClient';
+import Tooltip from '@/components/tooltip/Tooltip';
+import IframeClient from '@/components/IframeClient';
 
 const links = [
   {

@@ -1,7 +1,7 @@
 import {memo} from 'react';
 import DownloadIcon from '@/icons/DownloadIcon';
 import dynamic from 'next/dynamic';
-import Tooltip from '@/app/components/tooltip/Tooltip';
+import Tooltip from '@/components/tooltip/Tooltip';
 
 const CVViewer = dynamic(() => import('@/components/pdf/CVViewer'), {ssr: false});
 

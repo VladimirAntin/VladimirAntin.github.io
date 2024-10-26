@@ -1,7 +1,7 @@
 import {memo} from 'react';
 import GithubIcon from '@/icons/projects/GithubIcon';
 import Link from 'next/link';
-import Tooltip from '@/app/components/tooltip/Tooltip';
+import Tooltip from '@/components/tooltip/Tooltip';
 import MavenIcon from '@/icons/projects/MavenIcon';
 import SpringCore from '@/components/SpringCore.jsx';
 

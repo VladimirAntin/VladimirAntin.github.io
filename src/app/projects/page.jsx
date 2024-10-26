@@ -7,7 +7,7 @@ import NpmIcon from '@/icons/projects/NpmIcon';
 import GitlabIcon from '@/icons/projects/GitlabIcon';
 import NetlifyIcon from '@/icons/projects/NetlifyIcon';
 import Typing from '@/components/Typing.jsx';
-import Tooltip from '@/app/components/tooltip/Tooltip';
+import Tooltip from '@/components/tooltip/Tooltip';
 import PlayStoreIcon from '@/icons/projects/PlayStoreIcon';
 import AppleStoreIcon from '@/icons/projects/AppleStoreIcon';
 
