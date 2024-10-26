@@ -1,20 +1,25 @@
 import {memo} from 'react';
-import MavenIcon from '@/app/components/icons/projects/MavenIcon';
-import GithubIcon from '@/app/components/icons/projects/GithubIcon';
+import MavenIcon from '@/icons/projects/MavenIcon';
+import GithubIcon from '@/icons/projects/GithubIcon';
 import Link from 'next/link';
 import Image from 'next/image';
-import NpmIcon from '@/app/components/icons/projects/NpmIcon';
-import GitlabIcon from '@/app/components/icons/projects/GitlabIcon';
-import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
-import Typing from '@/app/components/Typing';
+import NpmIcon from '@/icons/projects/NpmIcon';
+import GitlabIcon from '@/icons/projects/GitlabIcon';
+import NetlifyIcon from '@/icons/projects/NetlifyIcon';
+import Typing from '@/components/Typing.jsx';
 import Tooltip from '@/app/components/tooltip/Tooltip';
-import PlayStoreIcon from '@/app/components/icons/projects/PlayStoreIcon';
-import AppleStoreIcon from '@/app/components/icons/projects/AppleStoreIcon';
+import PlayStoreIcon from '@/icons/projects/PlayStoreIcon';
+import AppleStoreIcon from '@/icons/projects/AppleStoreIcon';
 
 const projects = [
   {
     title: 'Dealio - marketplace',
-    description: 'Digital marketplace.',
+    description: `The E-Commerce Mobile Application aims to provide a seamless and user-friendly
+      platform for customers to browse, purchase, and manage
+      products from their mobile devices. This application will caterto both Android
+      and iOS users, ensuring a wide reach. It also has many integrations like
+      SalesForce, Google Maps, Apple Maps, Open Street Maps, Firebase, Expo, Didomi,
+      UXCam, KYC, SendGrid, and SendBird, as well as paymentintegration`,
     image: '/images/dealio.webp',
     url: 'https://www.dealio.com/',
     external: true,

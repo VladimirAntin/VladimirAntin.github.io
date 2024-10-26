@@ -1,9 +1,9 @@
 import {memo} from 'react';
-import GithubIcon from '@/app/components/icons/projects/GithubIcon';
+import GithubIcon from '@/icons/projects/GithubIcon';
 import Link from 'next/link';
 import Tooltip from '@/app/components/tooltip/Tooltip';
-import MavenIcon from '@/app/components/icons/projects/MavenIcon';
-import SpringCore from '@/app/components/SpringCore';
+import MavenIcon from '@/icons/projects/MavenIcon';
+import SpringCore from '@/components/SpringCore.jsx';
 
 const links = [
   {

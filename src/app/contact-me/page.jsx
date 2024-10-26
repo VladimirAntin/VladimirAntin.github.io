@@ -1,7 +1,7 @@
 import {memo} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ContactMeForm from '@/app/contact-me/ContactMeForm';
+import ContactMeForm from '@/components/contact-me/ContactMeForm.jsx';
 
 const contacts = [
   {link: 'tel:+381616279151', content: '+381 61 627 91 51'},
@@ -11,7 +11,7 @@ const ContactMe = () => {
   return (
     <div className={'flex flex-col items-center w-full xl:w-3/5 gap-10'}>
       <Image
-        src={'/images/profile.jpg'}
+        src={'/images/profile.webp'}
         className={'rounded-2xl bg-white p-1'}
         alt={'profile'}
         width={300}

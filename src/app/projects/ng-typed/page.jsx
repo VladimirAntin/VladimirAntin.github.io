@@ -1,8 +1,8 @@
 import {memo} from 'react';
 import Link from 'next/link';
-import NpmIcon from '@/app/components/icons/projects/NpmIcon';
-import GithubIcon from '@/app/components/icons/projects/GithubIcon';
-import NetlifyIcon from '@/app/components/icons/projects/NetlifyIcon';
+import NpmIcon from '@/icons/projects/NpmIcon';
+import GithubIcon from '@/icons/projects/GithubIcon';
+import NetlifyIcon from '@/icons/projects/NetlifyIcon';
 import Tooltip from '@/app/components/tooltip/Tooltip';
 import IframeClient from '@/app/components/IframeClient';
 

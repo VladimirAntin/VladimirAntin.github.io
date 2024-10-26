@@ -1,11 +1,11 @@
 import {Inter} from 'next/font/google';
 import './index.css';
-import Particles from '@/app/Particles';
-import Header from '@/app/components/navigation/Header';
-import {cn} from '@/app/utils/CN';
-import Navigation from '@/app/components/navigation/Navigation';
-import Footer from '@/app/components/navigation/Footer';
-import MobileNavigation from '@/app/components/navigation/MobileNavigation';
+import Particles from '@/particles/Particles.jsx';
+import Header from '@/components/navigation/Header';
+import {cn} from '@/utils/CN';
+import Navigation from '@/components/navigation/Navigation';
+import Footer from '@/components/navigation/Footer';
+import MobileNavigation from '@/components/navigation/MobileNavigation';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -52,7 +52,7 @@ export default function RootLayout({children}) {
         />
         <meta
           property="og:description"
-          content="Software Engineering Lead from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
+          content="Software Engineer from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
         />
         <meta
           property="og:site_name"
@@ -69,6 +69,7 @@ export default function RootLayout({children}) {
         style={{
           backgroundImage: `url('/images/bg.png')`,
         }}
+        suppressHydrationWarning
       >
         <Particles />
         <Header />

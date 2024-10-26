@@ -1,6 +1,6 @@
 import {memo} from 'react';
-import Information from '@/app/components/home/Information';
-import References from '@/app/components/home/References';
+import Information from '@/components/home/Information';
+import References from '@/components/home/References';
 
 const Home = () => {
   return (

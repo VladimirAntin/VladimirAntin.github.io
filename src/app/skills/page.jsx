@@ -1,13 +1,13 @@
 import {memo} from 'react';
-import LanguagesIcon from '@/app/components/icons/skills/LanguagesIcon';
-import FrameworkIcon from '@/app/components/icons/skills/FrameworkIcon';
-import DBIcon from '@/app/components/icons/skills/DBIcon';
-import ProjectManagementIcon from '@/app/components/icons/skills/ProjectManagmentIcon';
-import IdeIcon from '@/app/components/icons/skills/IdeIcon';
-import OsIcon from '@/app/components/icons/skills/OsIcon';
-import OtherIcon from '@/app/components/icons/skills/OtherIcon';
-import LearnIcon from '@/app/components/icons/skills/LearnIcon';
-import GitIcon from '@/app/components/icons/skills/GitIcon';
+import LanguagesIcon from '@/icons/skills/LanguagesIcon';
+import FrameworkIcon from '@/icons/skills/FrameworkIcon';
+import DBIcon from '@/icons/skills/DBIcon';
+import ProjectManagementIcon from '@/icons/skills/ProjectManagmentIcon';
+import IdeIcon from '@/icons/skills/IdeIcon';
+import OsIcon from '@/icons/skills/OsIcon';
+import OtherIcon from '@/icons/skills/OtherIcon';
+import LearnIcon from '@/icons/skills/LearnIcon';
+import GitIcon from '@/icons/skills/GitIcon';
 
 const skills = [
   {
