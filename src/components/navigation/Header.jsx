@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <Link
         className={'flex flex-row items-center gap-2 h-[10vh] mb-20 xl:mb-0 '}
-        href={'/public'}
+        href={'/'}
       >
         <Image
           width={100}
