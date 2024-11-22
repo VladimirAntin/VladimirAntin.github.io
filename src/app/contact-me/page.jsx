@@ -11,7 +11,7 @@ const ContactMe = () => {
   return (
     <div className={'flex flex-col items-center w-full xl:w-3/5 gap-10'}>
       <Image
-        src={'/images/profile.webp'}
+        src={'/images/profile.jpg'}
         className={'rounded-2xl bg-white p-1'}
         alt={'profile'}
         width={300}
