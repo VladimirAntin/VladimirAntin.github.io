@@ -1,8 +1,8 @@
 'use client';
-import {memo} from 'react';
+import {memo, useState} from 'react';
 
 const Footer = () => {
-  const currentDate = new Date();
+  const [currentDate] = useState(new Date());
   return (
     <footer className={'flex justify-center items-center h-[10vh]'}>
       <div className={'flex gap-2'}>
