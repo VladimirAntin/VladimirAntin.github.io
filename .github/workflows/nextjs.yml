@@ -41,7 +41,7 @@ jobs:
         run: bun install
 
       - name: post install
-        run: bun pm untrusted
+        run: bun pm trust
 
       - name: Install dependencies
         run: bun install
