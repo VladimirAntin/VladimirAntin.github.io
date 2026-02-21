@@ -48,7 +48,7 @@ export default function RootLayout({children}) {
         />
         <meta
           property="og:url"
-          content="https://vladimirantin.github.io/"
+          content="https://vladimirantin.hok.rs/"
         />
         <meta
           property="og:description"

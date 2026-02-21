@@ -6,4 +6,4 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: http://vladimirantin.github.io/sitemap.xml
+Sitemap: http://vladimirantin.hok.rs/sitemap.xml
