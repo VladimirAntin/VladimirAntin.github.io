@@ -1,4 +1,8 @@
 export default {
+  fullScreen: {
+    enable: true,
+    zIndex: -1,
+  },
   particles: {
     color: {
       value: '#ffffff',
