@@ -101,5 +101,10 @@ const Skills = () => {
 };
 export const metadata = {
   title: 'Vladimir Antin | Skills',
+  description:
+    'Technical skills of Vladimir Antin across Java, Spring Boot, JavaScript/TypeScript, Angular, React, Next.js, databases, and tooling.',
+  alternates: {
+    canonical: '/skills',
+  },
 };
 export default memo(Skills);

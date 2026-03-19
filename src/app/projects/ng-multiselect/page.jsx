@@ -58,5 +58,10 @@ const NgMultiSelect = () => {
 
 export const metadata = {
   title: 'Vladimir Antin | Ng Multiselect',
+  description:
+    'Ng Multiselect Angular library project by Vladimir Antin with demo, source links, and package references.',
+  alternates: {
+    canonical: '/projects/ng-multiselect',
+  },
 };
 export default memo(NgMultiSelect);

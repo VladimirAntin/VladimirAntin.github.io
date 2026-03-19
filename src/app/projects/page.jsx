@@ -268,6 +268,11 @@ const Projects = () => {
 
 export const metadata = {
   title: 'Vladimir Antin | Projects',
+  description:
+    'Browse projects by Vladimir Antin, including Java/Spring solutions, Angular libraries, and production mobile/web apps.',
+  alternates: {
+    canonical: '/projects',
+  },
 };
 
 export default memo(Projects);

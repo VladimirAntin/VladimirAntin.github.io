@@ -31,5 +31,10 @@ const CV = () => {
 };
 export const metadata = {
   title: 'Vladimir Antin | CV',
+  description:
+    'View and download the CV of Vladimir Antin, full stack developer with experience in Java, Spring, Angular, React, and Next.js.',
+  alternates: {
+    canonical: '/cv',
+  },
 };
 export default memo(CV);

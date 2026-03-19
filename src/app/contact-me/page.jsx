@@ -37,6 +37,11 @@ const ContactMe = () => {
 };
 export const metadata = {
   title: 'Vladimir Antin | Contact me',
+  description:
+    'Contact Vladimir Antin for full stack development opportunities, project collaboration, or technical consulting.',
+  alternates: {
+    canonical: '/contact-me',
+  },
 };
 
 export default memo(ContactMe);

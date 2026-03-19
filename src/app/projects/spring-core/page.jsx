@@ -51,5 +51,10 @@ const SpringCorePage = () => {
 
 export const metadata = {
   title: 'Vladimir Antin | Spring Core',
+  description:
+    'Spring Core project by Vladimir Antin: a Spring Boot component generator with links to Maven repository and source code.',
+  alternates: {
+    canonical: '/projects/spring-core',
+  },
 };
 export default memo(SpringCorePage);

@@ -58,5 +58,10 @@ const NgTyped = () => {
 
 export const metadata = {
   title: 'Vladimir Antin | Ng Typed',
+  description:
+    'Ng Typed Angular typing-effect library by Vladimir Antin with demo, npm package, and source code links.',
+  alternates: {
+    canonical: '/projects/ng-typed',
+  },
 };
 export default memo(NgTyped);

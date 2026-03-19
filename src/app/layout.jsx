@@ -8,62 +8,99 @@ import Footer from '@/components/navigation/Footer';
 import MobileNavigation from '@/components/navigation/MobileNavigation';
 
 const inter = Inter({subsets: ['latin']});
+const siteUrl = 'https://vladimirantin.hok.rs';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Vladimir Antin Portfolio',
+  url: siteUrl,
+  inLanguage: 'en',
+  description: 'Portfolio of Vladimir Antin, a full stack developer focused on Java, Spring, JavaScript, Angular, React, and Next.js.',
+};
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Vladimir Antin',
+  url: siteUrl,
+  image: `${siteUrl}/images/profile.jpg`,
+  jobTitle: 'Full Stack Developer',
+  email: 'mailto:antin502@gmail.com',
+  telephone: '+381616279151',
+  sameAs: ['https://github.com/vladimirantin'],
+  knowsAbout: ['Java', 'Spring Boot', 'JavaScript', 'TypeScript', 'Angular', 'React', 'Next.js', 'Node.js'],
+};
 
 export const metadata = {
-  title: 'Vladimir Antin | Portfolio',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Vladimir Antin | Full Stack Developer Portfolio',
+    template: '%s',
+  },
+  description:
+    'Portfolio of Vladimir Antin, a full stack developer from Novi Sad specialized in Java, Spring, JavaScript, Angular, React, and Next.js.',
+  keywords: [
+    'Vladimir Antin',
+    'Full Stack Developer',
+    'Java Developer',
+    'Spring Boot',
+    'JavaScript',
+    'Angular',
+    'React',
+    'Next.js',
+    'Portfolio',
+  ],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Vladimir Antin | Full Stack Developer Portfolio',
+    description:
+      'Software engineer portfolio with projects in Java, Spring, JavaScript, Angular, React, and Next.js.',
+    url: siteUrl,
+    siteName: 'Vladimir Antin Portfolio',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/images/profile.jpg',
+        width: 300,
+        height: 300,
+        alt: 'Vladimir Antin profile image',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vladimir Antin | Full Stack Developer Portfolio',
+    description:
+      'Software engineer portfolio with projects in Java, Spring, JavaScript, Angular, React, and Next.js.',
+    images: ['/images/profile.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'rVhSpVb3sW36OBOqviY5UJAbUoNanLm_p0aSaNcspV0',
+  },
+  icons: {
+    icon: '/images/va.png',
+  },
 };
 
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <title>Vladimir Antin</title>
-        <base href="/" />
-
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        />
-        <meta
-          name="google-site-verification"
-          content="rVhSpVb3sW36OBOqviY5UJAbUoNanLm_p0aSaNcspV0"
-        />
-        <meta
-          name="description"
-          content="Full Stack developer from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
-        />
-        <meta
-          name="google"
-          content="notranslate"
-        />
-        <meta
-          name="referrer"
-          content="origin-when-crossorigin"
-          id="meta_referrer"
-        />
-        <meta
-          name="keywords"
-          content="developer;programmer;full-stack;fullstack;java;javascript;angular;spring"
-        />
-        <meta
-          property="og:url"
-          content="https://vladimirantin.hok.rs/"
-        />
-        <meta
-          property="og:description"
-          content="Software Engineer from Novi Sad, Serbia.Proficient in Java, JavaScript, MySQL, NoSQL.."
-        />
-        <meta
-          property="og:site_name"
-          content="Vladimir Antin | Portfolio"
-        />
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href="/images/va.png"
-        />
-      </head>
+      <head  />
       <body
         className={cn(inter.className)}
         style={{
@@ -71,6 +108,14 @@ export default function RootLayout({children}) {
         }}
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{__html: JSON.stringify(websiteSchema)}}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{__html: JSON.stringify(personSchema)}}
+        />
         <Particles />
         <Header />
         <MobileNavigation />
