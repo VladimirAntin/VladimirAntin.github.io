@@ -32,9 +32,23 @@ const CV = () => {
 export const metadata = {
   title: 'Vladimir Antin | CV',
   description:
-    'View and download the CV of Vladimir Antin, full stack developer with experience in Java, Spring, Angular, React, and Next.js.',
+    'View and download the CV of Vladimir Antin — full stack developer with 5+ years of experience in Java, Spring Boot, Angular, React, Next.js, React Native, and more.',
+  keywords: [
+    'Vladimir Antin CV',
+    'Vladimir Antin resume',
+    'full stack developer resume',
+    'Java Spring Boot CV',
+    'Angular React developer',
+    'Novi Sad developer',
+  ],
   alternates: {
     canonical: '/cv',
+  },
+  openGraph: {
+    title: 'Vladimir Antin | CV',
+    description:
+      'Download the CV of Vladimir Antin, full stack developer from Novi Sad, Serbia.',
+    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
   },
 };
 export default memo(CV);

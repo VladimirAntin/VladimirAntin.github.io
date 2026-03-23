@@ -269,9 +269,25 @@ const Projects = () => {
 export const metadata = {
   title: 'Vladimir Antin | Projects',
   description:
-    'Browse projects by Vladimir Antin, including Java/Spring solutions, Angular libraries, and production mobile/web apps.',
+    'Browse projects by Vladimir Antin: Dealio e-commerce app, Spring Core library, Angular ng-multiselect, ng-typed, and more. Full stack web and mobile applications.',
+  keywords: [
+    'Vladimir Antin projects',
+    'Spring Boot library',
+    'Angular multiselect dropdown',
+    'React Native e-commerce',
+    'Dealio app',
+    'Java open source',
+    'npm package',
+    'full stack portfolio',
+  ],
   alternates: {
     canonical: '/projects',
+  },
+  openGraph: {
+    title: 'Vladimir Antin | Projects',
+    description:
+      'Browse projects by Vladimir Antin: e-commerce apps, Java libraries, Angular packages, and more.',
+    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
   },
 };
 

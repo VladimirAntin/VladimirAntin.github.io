@@ -16,7 +16,12 @@ const websiteSchema = {
   name: 'Vladimir Antin Portfolio',
   url: siteUrl,
   inLanguage: 'en',
-  description: 'Portfolio of Vladimir Antin, a full stack developer focused on Java, Spring, JavaScript, Angular, React, and Next.js.',
+  description: 'Portfolio of Vladimir Antin, a full stack developer from Novi Sad, Serbia focused on Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/projects`,
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 const personSchema = {
@@ -26,10 +31,37 @@ const personSchema = {
   url: siteUrl,
   image: `${siteUrl}/images/profile.jpg`,
   jobTitle: 'Full Stack Developer',
+  description: 'Full Stack Developer from Novi Sad, Serbia with expertise in Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
   email: 'mailto:antin502@gmail.com',
   telephone: '+381616279151',
-  sameAs: ['https://github.com/vladimirantin'],
-  knowsAbout: ['Java', 'Spring Boot', 'JavaScript', 'TypeScript', 'Angular', 'React', 'Next.js', 'Node.js'],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Novi Sad',
+    addressCountry: 'RS',
+  },
+  sameAs: [
+    'https://github.com/vladimirantin',
+    'https://gitlab.com/antin502',
+    'https://www.linkedin.com/in/vladimir-antin',
+    'https://npmjs.com/~antin502',
+  ],
+  knowsAbout: [
+    'Java', 'Spring Boot', 'Micronaut', 'JavaScript', 'TypeScript',
+    'Angular', 'React', 'Next.js', 'NestJS', 'Node.js', 'React Native',
+    'MongoDB', 'MySQL', 'PostgreSQL', 'REST API', 'GraphQL', 'Docker',
+  ],
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
+    {'@type': 'ListItem', position: 2, name: 'Projects', item: `${siteUrl}/projects`},
+    {'@type': 'ListItem', position: 3, name: 'Skills', item: `${siteUrl}/skills`},
+    {'@type': 'ListItem', position: 4, name: 'CV', item: `${siteUrl}/cv`},
+    {'@type': 'ListItem', position: 5, name: 'Contact', item: `${siteUrl}/contact-me`},
+  ],
 };
 
 export const metadata = {
@@ -39,18 +71,36 @@ export const metadata = {
     template: '%s',
   },
   description:
-    'Portfolio of Vladimir Antin, a full stack developer from Novi Sad specialized in Java, Spring, JavaScript, Angular, React, and Next.js.',
+    'Portfolio of Vladimir Antin, a full stack developer from Novi Sad, Serbia, specialized in Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
   keywords: [
     'Vladimir Antin',
     'Full Stack Developer',
     'Java Developer',
-    'Spring Boot',
-    'JavaScript',
-    'Angular',
-    'React',
-    'Next.js',
+    'Spring Boot Developer',
+    'JavaScript Developer',
+    'TypeScript Developer',
+    'Angular Developer',
+    'React Developer',
+    'Next.js Developer',
+    'NestJS',
+    'Micronaut',
+    'React Native',
+    'Node.js',
+    'MongoDB',
+    'PostgreSQL',
+    'MySQL',
+    'REST API',
+    'GraphQL',
     'Portfolio',
+    'Software Engineer',
+    'Novi Sad',
+    'Serbia',
+    'freelance developer',
   ],
+  authors: [{name: 'Vladimir Antin', url: siteUrl}],
+  creator: 'Vladimir Antin',
+  publisher: 'Vladimir Antin',
+  category: 'technology',
   alternates: {
     canonical: '/',
   },
@@ -115,6 +165,10 @@ export default function RootLayout({children}) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{__html: JSON.stringify(personSchema)}}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbSchema)}}
         />
         <Particles />
         <Header />

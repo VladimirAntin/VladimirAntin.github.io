@@ -50,11 +50,25 @@ const SpringCorePage = () => {
 };
 
 export const metadata = {
-  title: 'Vladimir Antin | Spring Core',
+  title: 'Vladimir Antin | spring-core — Spring Boot Component Generator',
   description:
-    'Spring Core project by Vladimir Antin: a Spring Boot component generator with links to Maven repository and source code.',
+    'spring-core is an open-source Spring Boot library by Vladimir Antin that generates Spring components. Available on Maven Central and GitHub.',
+  keywords: [
+    'spring-core',
+    'Spring Boot library',
+    'Java open source',
+    'Maven Central',
+    'Spring component generator',
+    'Vladimir Antin Java',
+    'com.github.vladimirantin',
+  ],
   alternates: {
     canonical: '/projects/spring-core',
+  },
+  openGraph: {
+    title: 'spring-core | Spring Boot Library by Vladimir Antin',
+    description: 'Open-source Spring Boot component generator library available on Maven Central.',
+    images: [{ url: '/images/java.png', width: 1200, height: 630, alt: 'spring-core preview' }],
   },
 };
 export default memo(SpringCorePage);

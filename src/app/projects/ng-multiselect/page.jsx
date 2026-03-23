@@ -57,11 +57,24 @@ const NgMultiSelect = () => {
 };
 
 export const metadata = {
-  title: 'Vladimir Antin | Ng Multiselect',
+  title: 'Vladimir Antin | ng-multiselect — Angular Multiselect Dropdown',
   description:
-    'Ng Multiselect Angular library project by Vladimir Antin with demo, source links, and package references.',
+    'ng-multiselect is an Angular multiselect dropdown library built by Vladimir Antin. Browse the live demo, npm package, and source code on GitHub and GitLab.',
+  keywords: [
+    'ng-multiselect',
+    'Angular multiselect dropdown',
+    'Angular library',
+    'npm package',
+    'Vladimir Antin Angular',
+    'open source Angular component',
+  ],
   alternates: {
     canonical: '/projects/ng-multiselect',
+  },
+  openGraph: {
+    title: 'ng-multiselect | Angular Multiselect Dropdown by Vladimir Antin',
+    description: 'Open-source Angular multiselect dropdown library with live demo.',
+    images: [{ url: '/images/angular-website.png', width: 1200, height: 630, alt: 'ng-multiselect preview' }],
   },
 };
 export default memo(NgMultiSelect);

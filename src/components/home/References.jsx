@@ -34,7 +34,7 @@ const References = () => {
                   className="cursor-pointer text-white font-bold hover:underline"
                   href={link}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="me noreferrer"
                 >
                   {name}
                 </a>

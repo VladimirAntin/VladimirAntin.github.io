@@ -102,9 +102,25 @@ const Skills = () => {
 export const metadata = {
   title: 'Vladimir Antin | Skills',
   description:
-    'Technical skills of Vladimir Antin across Java, Spring Boot, JavaScript/TypeScript, Angular, React, Next.js, databases, and tooling.',
+    'Technical skills of Vladimir Antin: Java, Spring Boot, Micronaut, JavaScript, TypeScript, Angular, React, Next.js, NestJS, React Native, MongoDB, PostgreSQL, MySQL, Docker, REST, GraphQL, and more.',
+  keywords: [
+    'Vladimir Antin skills',
+    'Java Spring Boot',
+    'Angular TypeScript',
+    'React Next.js',
+    'MongoDB PostgreSQL',
+    'full stack developer skills',
+    'REST API GraphQL',
+    'Docker AWS',
+  ],
   alternates: {
     canonical: '/skills',
+  },
+  openGraph: {
+    title: 'Vladimir Antin | Skills',
+    description:
+      'Full stack developer skills: Java, Spring Boot, Angular, React, Next.js, databases, APIs, and cloud.',
+    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
   },
 };
 export default memo(Skills);

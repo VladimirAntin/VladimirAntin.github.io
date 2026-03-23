@@ -57,11 +57,25 @@ const NgTyped = () => {
 };
 
 export const metadata = {
-  title: 'Vladimir Antin | Ng Typed',
+  title: 'Vladimir Antin | ng-typed — Angular Typing Effect Library',
   description:
-    'Ng Typed Angular typing-effect library by Vladimir Antin with demo, npm package, and source code links.',
+    'ng-typed is an Angular typing-effect animation library built by Vladimir Antin. Explore the live demo, npm package, and source code on GitHub and GitLab.',
+  keywords: [
+    'ng-typed',
+    'Angular typing effect',
+    'Angular animation library',
+    'npm Angular package',
+    'Vladimir Antin Angular',
+    'typing animation component',
+    'open source Angular',
+  ],
   alternates: {
     canonical: '/projects/ng-typed',
+  },
+  openGraph: {
+    title: 'ng-typed | Angular Typing Effect Library by Vladimir Antin',
+    description: 'Open-source Angular library for typing-effect animations with live demo.',
+    images: [{ url: '/images/angular.png', width: 1200, height: 630, alt: 'ng-typed preview' }],
   },
 };
 export default memo(NgTyped);

@@ -3,11 +3,27 @@ import Information from '@/components/home/Information';
 import References from '@/components/home/References';
 
 export const metadata = {
-  title: 'Vladimir Antin | Portfolio',
+  title: 'Vladimir Antin | Full Stack Developer Portfolio',
   description:
-    'Explore Vladimir Antin portfolio: full stack projects, skills, CV, and contact information.',
+    'Vladimir Antin is a full stack software engineer from Novi Sad, Serbia. Experienced in Java, Spring Boot, Angular, React, Next.js, and mobile development with React Native.',
+  keywords: [
+    'Vladimir Antin',
+    'Full Stack Developer Novi Sad',
+    'Java Developer Serbia',
+    'Spring Boot',
+    'Angular Developer',
+    'React Developer',
+    'Next.js Portfolio',
+    'Software Engineer',
+  ],
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    title: 'Vladimir Antin | Full Stack Developer Portfolio',
+    description:
+      'Vladimir Antin is a full stack software engineer from Novi Sad, Serbia. Experienced in Java, Spring Boot, Angular, React, Next.js, and React Native.',
+    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
   },
 };
 
