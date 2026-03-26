@@ -6,22 +6,19 @@ import {cn} from '@/utils/CN';
 import Navigation from '@/components/navigation/Navigation';
 import Footer from '@/components/navigation/Footer';
 import MobileNavigation from '@/components/navigation/MobileNavigation';
+import JsonLd from '@/components/seo/JsonLd';
+import {contact, defaultOgImage, siteName, siteUrl, socialProfiles} from '@/data/seo';
 
 const inter = Inter({subsets: ['latin']});
-const siteUrl = 'https://vladimirantin.hok.rs';
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Vladimir Antin Portfolio',
+  name: siteName,
   url: siteUrl,
   inLanguage: 'en',
-  description: 'Portfolio of Vladimir Antin, a full stack developer from Novi Sad, Serbia focused on Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${siteUrl}/projects`,
-    'query-input': 'required name=search_term_string',
-  },
+  description:
+    'Portfolio of Vladimir Antin, a full stack developer from Novi Sad, Serbia focused on Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
 };
 
 const personSchema = {
@@ -31,20 +28,16 @@ const personSchema = {
   url: siteUrl,
   image: `${siteUrl}/images/profile.jpg`,
   jobTitle: 'Full Stack Developer',
-  description: 'Full Stack Developer from Novi Sad, Serbia with expertise in Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
-  email: 'mailto:antin502@gmail.com',
-  telephone: '+381616279151',
+  description:
+    'Full Stack Developer from Novi Sad, Serbia with expertise in Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
+  email: `mailto:${contact.email}`,
+  telephone: contact.phone,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Novi Sad',
-    addressCountry: 'RS',
+    addressLocality: contact.city,
+    addressCountry: contact.countryCode,
   },
-  sameAs: [
-    'https://github.com/vladimirantin',
-    'https://gitlab.com/antin502',
-    'https://www.linkedin.com/in/vladimir-antin',
-    'https://npmjs.com/~antin502',
-  ],
+  sameAs: socialProfiles,
   knowsAbout: [
     'Java', 'Spring Boot', 'Micronaut', 'JavaScript', 'TypeScript',
     'Angular', 'React', 'Next.js', 'NestJS', 'Node.js', 'React Native',
@@ -52,23 +45,21 @@ const personSchema = {
   ],
 };
 
-const breadcrumbSchema = {
+const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {'@type': 'ListItem', position: 1, name: 'Home', item: siteUrl},
-    {'@type': 'ListItem', position: 2, name: 'Projects', item: `${siteUrl}/projects`},
-    {'@type': 'ListItem', position: 3, name: 'Skills', item: `${siteUrl}/skills`},
-    {'@type': 'ListItem', position: 4, name: 'CV', item: `${siteUrl}/cv`},
-    {'@type': 'ListItem', position: 5, name: 'Contact', item: `${siteUrl}/contact-me`},
-  ],
+  '@type': 'Organization',
+  name: siteName,
+  url: siteUrl,
+  logo: `${siteUrl}/images/va.png`,
+  sameAs: socialProfiles,
 };
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: siteName,
   title: {
     default: 'Vladimir Antin | Full Stack Developer Portfolio',
-    template: '%s',
+    template: '%s | Vladimir Antin',
   },
   description:
     'Portfolio of Vladimir Antin, a full stack developer from Novi Sad, Serbia, specialized in Java, Spring Boot, JavaScript, TypeScript, Angular, React, and Next.js.',
@@ -101,6 +92,13 @@ export const metadata = {
   creator: 'Vladimir Antin',
   publisher: 'Vladimir Antin',
   category: 'technology',
+  manifest: '/manifest.webmanifest',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: true,
+    telephone: true,
+    address: true,
+  },
   alternates: {
     canonical: '/',
   },
@@ -109,12 +107,12 @@ export const metadata = {
     description:
       'Software engineer portfolio with projects in Java, Spring, JavaScript, Angular, React, and Next.js.',
     url: siteUrl,
-    siteName: 'Vladimir Antin Portfolio',
+    siteName,
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: '/images/profile.jpg',
+        url: defaultOgImage,
         width: 300,
         height: 300,
         alt: 'Vladimir Antin profile image',
@@ -126,7 +124,7 @@ export const metadata = {
     title: 'Vladimir Antin | Full Stack Developer Portfolio',
     description:
       'Software engineer portfolio with projects in Java, Spring, JavaScript, Angular, React, and Next.js.',
-    images: ['/images/profile.jpg'],
+    images: [defaultOgImage],
   },
   robots: {
     index: true,
@@ -144,13 +142,13 @@ export const metadata = {
   },
   icons: {
     icon: '/images/va.png',
+    apple: '/images/va.png',
   },
 };
 
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <head  />
       <body
         className={cn(inter.className)}
         style={{
@@ -158,18 +156,9 @@ export default function RootLayout({children}) {
         }}
         suppressHydrationWarning
       >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{__html: JSON.stringify(websiteSchema)}}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{__html: JSON.stringify(personSchema)}}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbSchema)}}
-        />
+        <JsonLd data={websiteSchema} />
+        <JsonLd data={personSchema} />
+        <JsonLd data={organizationSchema} />
         <Particles />
         <Header />
         <MobileNavigation />

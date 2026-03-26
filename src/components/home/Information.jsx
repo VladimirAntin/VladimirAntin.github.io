@@ -44,12 +44,12 @@ const Information = () => {
         tagName={'Position'}
         className={'pl-5'}
       >
-        <p className={'text-white pl-5 py-5 text-3xl'}>
+        <h1 id={'home-hero-title'} className={'text-white pl-5 py-5 text-3xl font-bold'}>
           <Typing
             text={'Software Engineer'}
             onDone={() => setType(TypeState.CITY)}
           />
-        </p>
+        </h1>
       </Tag>
 
       <Tag

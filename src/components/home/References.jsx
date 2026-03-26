@@ -16,10 +16,13 @@ const links = [
 
 const References = () => {
   return (
-    <>
-      <p className={'text-white text-3xl text-wrap w-2/3'}>{motivation.text}</p>
+    <section aria-labelledby={'profiles-heading'}>
+      <blockquote className={'text-white text-3xl text-wrap w-2/3'} cite={'https://blog.codinghorror.com/the-principle-of-least-power/'}>
+        {motivation.text}
+      </blockquote>
       <p className={'text-gray-500 text-2xl mb-10'}>{motivation.author}</p>
       <div>
+        <h2 id={'profiles-heading'} className={'sr-only'}>Professional profiles</h2>
         <Tag
           tagName={'links'}
           className={'text-2xl'}
@@ -43,7 +46,7 @@ const References = () => {
           ))}
         </Tag>
       </div>
-    </>
+    </section>
   );
 };
 

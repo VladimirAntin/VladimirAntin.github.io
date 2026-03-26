@@ -1,20 +1,29 @@
 import {memo} from 'react';
 import Link from 'next/link';
+import NpmIcon from '@/icons/projects/NpmIcon';
 import GitlabIcon from '@/icons/projects/GitlabIcon';
 import GithubIcon from '@/icons/projects/GithubIcon';
 import NetlifyIcon from '@/icons/projects/NetlifyIcon';
 import Tooltip from '@/components/tooltip/Tooltip';
 import IframeClient from '@/components/IframeClient';
+import JsonLd from '@/components/seo/JsonLd';
+import {siteUrl} from '@/data/seo';
 
 const links = [
   {
-    href: 'https://gitlab.com/antin502/ebook',
+    href: 'https://www.npmjs.com/package/@antin502/ng-multiselect',
+    Icon: NpmIcon,
+    title: 'NPM',
+    external: true,
+  },
+  {
+    href: 'https://gitlab.com/antin502/ng-multiselect',
     Icon: GitlabIcon,
     title: 'Gitlab',
     external: true,
   },
   {
-    href: 'https://github.com/vladimirantin/ebook',
+    href: 'https://github.com/vladimirantin/ng-multiselect',
     Icon: GithubIcon,
     title: 'Github',
     external: true,
@@ -27,17 +36,31 @@ const links = [
   },
 ];
 
+const projectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareSourceCode',
+  name: 'ng-multiselect',
+  codeRepository: 'https://github.com/vladimirantin/ng-multiselect',
+  url: `${siteUrl}/projects/ng-multiselect`,
+  programmingLanguage: 'TypeScript',
+  runtimePlatform: 'Angular',
+  description:
+    'Open-source Angular multiselect dropdown library by Vladimir Antin with live demo and package distribution.',
+};
+
 const NgMultiSelect = () => {
   return (
-    <div className={'bg-white w-full xl:w-3/5 rounded-2xl mx-2'}>
+    <section className={'bg-white w-full xl:w-3/5 rounded-2xl mx-2'} aria-labelledby={'ng-multiselect-title'}>
+      <JsonLd data={projectSchema} />
       <div className={'flex justify-between items-center my-5 mx-2'}>
         <div></div>
-        <h1 className={'text-center text-2xl font-bold m-2'}>./projects/ng-multiselect</h1>
+        <h1 id={'ng-multiselect-title'} className={'text-center text-2xl font-bold m-2'}>ng-multiselect</h1>
         <div className={'flex justify-end items-center'}>
           {links.map(({href, external, Icon, title}) => (
             <Link
               href={href}
               target={external ? '_blank' : undefined}
+              rel={external ? 'noreferrer noopener' : undefined}
               className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
               key={'href-' + href}
             >
@@ -51,13 +74,19 @@ const NgMultiSelect = () => {
           ))}
         </div>
       </div>
+      <div className={'px-4 pb-4 text-gray-700'}>
+        <p>
+          <strong>ng-multiselect</strong> is an Angular multiselect dropdown component focused on easy integration,
+          reusable UI behavior, and a practical developer experience for real-world Angular applications.
+        </p>
+      </div>
       <IframeClient src={'https://ng-multiselect.netlify.app/'} />
-    </div>
+    </section>
   );
 };
 
 export const metadata = {
-  title: 'Vladimir Antin | ng-multiselect — Angular Multiselect Dropdown',
+  title: 'ng-multiselect — Angular Multiselect Dropdown',
   description:
     'ng-multiselect is an Angular multiselect dropdown library built by Vladimir Antin. Browse the live demo, npm package, and source code on GitHub and GitLab.',
   keywords: [
@@ -74,7 +103,14 @@ export const metadata = {
   openGraph: {
     title: 'ng-multiselect | Angular Multiselect Dropdown by Vladimir Antin',
     description: 'Open-source Angular multiselect dropdown library with live demo.',
+    url: `${siteUrl}/projects/ng-multiselect`,
     images: [{ url: '/images/angular-website.png', width: 1200, height: 630, alt: 'ng-multiselect preview' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ng-multiselect | Angular Multiselect Dropdown by Vladimir Antin',
+    description: 'Open-source Angular multiselect dropdown library with live demo and npm package.',
+    images: ['/images/angular-website.png'],
   },
 };
 export default memo(NgMultiSelect);

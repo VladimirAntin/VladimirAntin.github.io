@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://vladimirantin.hok.rs/sitemap.xml

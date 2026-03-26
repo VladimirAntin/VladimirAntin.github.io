@@ -10,6 +10,8 @@ import Typing from '@/components/Typing.jsx';
 import Tooltip from '@/components/tooltip/Tooltip';
 import PlayStoreIcon from '@/icons/projects/PlayStoreIcon';
 import AppleStoreIcon from '@/icons/projects/AppleStoreIcon';
+import JsonLd from '@/components/seo/JsonLd';
+import {defaultOgImage, siteUrl} from '@/data/seo';
 
 const projects = [
   {
@@ -192,12 +194,29 @@ const links = [
   {name: '2. Contact me', link: '/contact-me'},
 ];
 
+const projectsPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Projects by Vladimir Antin',
+  url: `${siteUrl}/projects`,
+  description:
+    'Portfolio projects by Vladimir Antin, including Java and Spring libraries, Angular packages, and production web and mobile applications.',
+  hasPart: projects.map(({title, description, url, image}) => ({
+    '@type': 'CreativeWork',
+    name: title,
+    description,
+    url: url ? (url.startsWith('http') ? url : `${siteUrl}${url}`) : undefined,
+    image: `${siteUrl}${image}`,
+  })),
+};
+
 const ContainerImage = ({children, url, ...props}) => {
   return !url ? (
     <div {...props}>{children}</div>
   ) : (
     <Link
       href={url}
+      rel={props.target === '_blank' ? 'noreferrer noopener' : undefined}
       {...props}
     >
       {children}
@@ -207,9 +226,16 @@ const ContainerImage = ({children, url, ...props}) => {
 
 const Projects = () => {
   return (
-    <div className={'flex flex-col gap-10 w-full xl:w-3/5'}>
+    <section className={'flex flex-col gap-10 w-full xl:w-3/5'} aria-labelledby={'projects-title'}>
+      <JsonLd data={projectsPageSchema} />
+      <div className={'text-white'}>
+        <h1 id={'projects-title'} className={'text-4xl font-bold mb-3'}>Projects</h1>
+        <p className={'text-lg text-gray-300 max-w-3xl'}>
+          Selected web, mobile, Java, Spring Boot, Angular, and open-source projects built by Vladimir Antin.
+        </p>
+      </div>
       {projects.map(({title, description, image, links, url, typed, external}, idx) => (
-        <div
+        <article
           key={'project-' + idx}
           className={'bg-white rounded-2xl p-4 flex justify-between gap-4'}
         >
@@ -218,10 +244,10 @@ const Projects = () => {
             url={url}
             target={external ? '_blank' : undefined}
           >
-            <p className={'text-white text-2xl font-bold'}>{title}</p>
+            <h2 className={'text-white text-2xl font-bold'}>{title}</h2>
             <Image
               src={image}
-              alt={title}
+              alt={`${title} project preview`}
               width={200}
               height={200}
             />
@@ -229,15 +255,17 @@ const Projects = () => {
           <div className={'flex flex-col items-end justify-between gap-2 w-1/2'}>
             <p className={'font-medium'}>{!typed ? description : <Typing text={description} />}</p>
             <div className={'flex gap-4'}>
-              {links.map(({href, external, Icon, title}) => (
+              {links.map(({href, external, Icon, title: linkTitle}) => (
                 <Link
                   href={href}
                   target={external ? '_blank' : undefined}
+                  rel={external ? 'noreferrer noopener' : undefined}
+                  aria-label={`${linkTitle} link for ${title}`}
                   className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
                   key={'href-' + href}
                 >
                   <Tooltip
-                    content={title}
+                    content={linkTitle}
                     className={'text-white bg-black rounded-2xl px-2 py-1'}
                   >
                     <Icon />
@@ -246,10 +274,10 @@ const Projects = () => {
               ))}
             </div>
           </div>
-        </div>
+        </article>
       ))}
-      <div className={'flex flex-col gap-4 p-4 bg-white rounded-2xl'}>
-        <p className={'text-gray-500'}>Other projects:</p>
+      <section className={'flex flex-col gap-4 p-4 bg-white rounded-2xl'} aria-labelledby={'other-projects-title'}>
+        <h2 id={'other-projects-title'} className={'text-gray-500'}>Other projects</h2>
         <div className={'pl-5 flex flex-col gap-4'}>
           {links.map(({name, link}, idx) => (
             <Link
@@ -261,13 +289,13 @@ const Projects = () => {
             </Link>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 
 export const metadata = {
-  title: 'Vladimir Antin | Projects',
+  title: 'Projects',
   description:
     'Browse projects by Vladimir Antin: Dealio e-commerce app, Spring Core library, Angular ng-multiselect, ng-typed, and more. Full stack web and mobile applications.',
   keywords: [
@@ -287,7 +315,15 @@ export const metadata = {
     title: 'Vladimir Antin | Projects',
     description:
       'Browse projects by Vladimir Antin: e-commerce apps, Java libraries, Angular packages, and more.',
-    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
+    url: `${siteUrl}/projects`,
+    images: [{url: defaultOgImage, width: 300, height: 300, alt: 'Vladimir Antin'}],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vladimir Antin | Projects',
+    description:
+      'Selected projects in Java, Spring Boot, Angular, React, Next.js, and mobile development.',
+    images: [defaultOgImage],
   },
 };
 

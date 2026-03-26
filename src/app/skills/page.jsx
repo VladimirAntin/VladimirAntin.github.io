@@ -8,6 +8,8 @@ import OsIcon from '@/icons/skills/OsIcon';
 import OtherIcon from '@/icons/skills/OtherIcon';
 import LearnIcon from '@/icons/skills/LearnIcon';
 import GitIcon from '@/icons/skills/GitIcon';
+import JsonLd from '@/components/seo/JsonLd';
+import {defaultOgImage, siteUrl} from '@/data/seo';
 
 const skills = [
   {
@@ -69,11 +71,36 @@ const skills = [
   },
 ];
 
+const skillsPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Technical skills of Vladimir Antin',
+  url: `${siteUrl}/skills`,
+  itemListElement: skills.map(({name, pattern}, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name,
+    item: {
+      '@type': 'DefinedTermSet',
+      name,
+      hasDefinedTerm: pattern.map((term) => ({'@type': 'DefinedTerm', name: term})),
+    },
+  })),
+};
+
 const Skills = () => {
   return (
-    <div className={'flex flex-col xl:flex-row flex-wrap gap-10 w-full'}>
+    <section className={'flex flex-col gap-8 w-full'} aria-labelledby={'skills-title'}>
+      <JsonLd data={skillsPageSchema} />
+      <div className={'text-white'}>
+        <h1 id={'skills-title'} className={'text-4xl font-bold mb-3'}>Technical Skills</h1>
+        <p className={'text-lg text-gray-300 max-w-3xl'}>
+          Core backend, frontend, database, tooling, cloud, and product-development technologies used by Vladimir Antin.
+        </p>
+      </div>
+      <div className={'flex flex-col xl:flex-row flex-wrap gap-10 w-full'}>
       {skills.map(({name, Icon, pattern}, idx) => (
-        <div
+        <article
           key={'skills-' + idx}
           className={'flex flex-col bg-white rounded-xl xl:w-1/4 animate-fade-in-left xl:grayscale xl:hover:grayscale-0'}
         >
@@ -82,7 +109,7 @@ const Skills = () => {
               width={50}
               height={50}
             />
-            <p className={'font-bold'}>{name}</p>
+            <h2 className={'font-bold'}>{name}</h2>
           </div>
           <div className={'flex flex-row flex-wrap gap-3 w-full p-2'}>
             {pattern.map((text, textIdx) => (
@@ -94,13 +121,14 @@ const Skills = () => {
               </p>
             ))}
           </div>
-        </div>
+        </article>
       ))}
-    </div>
+      </div>
+    </section>
   );
 };
 export const metadata = {
-  title: 'Vladimir Antin | Skills',
+  title: 'Skills',
   description:
     'Technical skills of Vladimir Antin: Java, Spring Boot, Micronaut, JavaScript, TypeScript, Angular, React, Next.js, NestJS, React Native, MongoDB, PostgreSQL, MySQL, Docker, REST, GraphQL, and more.',
   keywords: [
@@ -120,7 +148,15 @@ export const metadata = {
     title: 'Vladimir Antin | Skills',
     description:
       'Full stack developer skills: Java, Spring Boot, Angular, React, Next.js, databases, APIs, and cloud.',
-    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
+    url: `${siteUrl}/skills`,
+    images: [{url: defaultOgImage, width: 300, height: 300, alt: 'Vladimir Antin'}],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vladimir Antin | Skills',
+    description:
+      'Backend, frontend, cloud, database, and product-development skills of Vladimir Antin.',
+    images: [defaultOgImage],
   },
 };
 export default memo(Skills);

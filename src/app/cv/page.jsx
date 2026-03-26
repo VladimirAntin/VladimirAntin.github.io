@@ -2,15 +2,34 @@ import {memo} from 'react';
 import DownloadIcon from '@/icons/DownloadIcon';
 import dynamic from 'next/dynamic';
 import Tooltip from '@/components/tooltip/Tooltip';
+import JsonLd from '@/components/seo/JsonLd';
+import {defaultOgImage, siteUrl} from '@/data/seo';
 
 const CVViewer = dynamic(() => import('@/components/pdf/CVViewer'), {ssr: false});
 
+const cvPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'Vladimir Antin CV',
+  url: `${siteUrl}/cv`,
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Vladimir Antin',
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Vladimir Antin CV',
+      url: `${siteUrl}/Vladimir-Antin-CV.pdf`,
+    },
+  },
+};
+
 const CV = () => {
   return (
-    <div className={'flex justify-center w-full xl:w-3/5'}>
+    <section className={'flex justify-center w-full xl:w-3/5'} aria-labelledby={'cv-title'}>
+      <JsonLd data={cvPageSchema} />
       <div className={'min-h-screen min-w-[100px] flex flex-col items-center bg-white rounded-2xl pb-[30px] animate-fade-in-left'}>
         <div className={'flex justify-between items-center bg-gray-300 p-4 w-full rounded-t-2xl'}>
-          <h1>Vladimir Antin CV</h1>
+          <h1 id={'cv-title'}>Vladimir Antin CV</h1>
           <a
             className={'flex items-center justify-center bg-white rounded-2xl group hover:bg-black'}
             href={'/Vladimir-Antin-CV.pdf'}
@@ -26,11 +45,11 @@ const CV = () => {
         </div>
         <CVViewer />
       </div>
-    </div>
+    </section>
   );
 };
 export const metadata = {
-  title: 'Vladimir Antin | CV',
+  title: 'CV',
   description:
     'View and download the CV of Vladimir Antin — full stack developer with 5+ years of experience in Java, Spring Boot, Angular, React, Next.js, React Native, and more.',
   keywords: [
@@ -48,7 +67,15 @@ export const metadata = {
     title: 'Vladimir Antin | CV',
     description:
       'Download the CV of Vladimir Antin, full stack developer from Novi Sad, Serbia.',
-    images: [{ url: '/images/profile.jpg', width: 300, height: 300, alt: 'Vladimir Antin' }],
+    url: `${siteUrl}/cv`,
+    images: [{url: defaultOgImage, width: 300, height: 300, alt: 'Vladimir Antin'}],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vladimir Antin | CV',
+    description:
+      'Download the CV and resume of Vladimir Antin, full stack developer from Novi Sad, Serbia.',
+    images: [defaultOgImage],
   },
 };
 export default memo(CV);

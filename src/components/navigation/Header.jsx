@@ -8,17 +8,18 @@ const Header = () => {
       <Link
         className={'flex flex-row items-center gap-2 h-[10vh] mb-20 xl:mb-0 '}
         href={'/'}
+        aria-label={'Go to Vladimir Antin home page'}
       >
         <Image
           width={100}
           height={100}
           src={'/images/va.png'}
-          alt={'logo'}
+          alt={'Vladimir Antin logo'}
           priority
         />
         <div>
-          <h1 className={'text-2xl text-white font-bold'}>Vladimir Antin</h1>
-          <h2 className={'text-xl text-gray-400 font-medium'}>Software Engineer</h2>
+          <p className={'text-2xl text-white font-bold'}>Vladimir Antin</p>
+          <p className={'text-xl text-gray-400 font-medium'}>Software Engineer</p>
         </div>
       </Link>
     </header>
