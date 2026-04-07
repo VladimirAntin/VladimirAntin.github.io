@@ -1,11 +1,9 @@
 import {memo} from 'react';
 import DownloadIcon from '@icons/DownloadIcon';
-import dynamic from 'next/dynamic';
 import Tooltip from '@components/tooltip/Tooltip';
 import JsonLd from '@components/seo/JsonLd';
+import CVViewer from '@components/pdf/CVViewerClient';
 import {defaultOgImage, siteUrl} from '@data/seo';
-
-const CVViewer = dynamic(() => import('@components/pdf/CVViewer'));
 
 const cvPageSchema = {
   '@context': 'https://schema.org',
