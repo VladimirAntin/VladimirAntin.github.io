@@ -27,4 +27,3 @@ export const routeEntries = [
   {url: '/projects/ng-multiselect', changeFrequency: 'monthly', priority: 0.75},
   {url: '/projects/ng-typed', changeFrequency: 'monthly', priority: 0.75},
 ];
-

@@ -1,4 +1,4 @@
-const dependency = (version) => {
+const dependency = version => {
   return `
     <dependency>
         <groupId>com.github.vladimirantin</groupId>
@@ -7,7 +7,7 @@ const dependency = (version) => {
         <scope>provided</scope>
     </dependency>`;
 };
-const path = (version) => {
+const path = version => {
   return `
     <build>
         <plugins>
@@ -32,7 +32,7 @@ const path = (version) => {
     </build>`;
 };
 
-const b = (s) => {
+const b = s => {
   return `<b class="text-[12px]">${s}</b>`;
 };
 

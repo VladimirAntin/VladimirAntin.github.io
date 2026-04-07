@@ -15,12 +15,34 @@ const skills = [
   {
     name: 'Programming languages',
     Icon: LanguagesIcon,
-    pattern: ['Java', 'JavaScript', 'PHP', 'TypeScript', 'HTML', 'CSS (Scss, less)', 'JSON', 'Basics of SQL', 'Basics of NoSQL'],
+    pattern: [
+      'Java',
+      'JavaScript',
+      'PHP',
+      'TypeScript',
+      'HTML',
+      'CSS (Scss, less)',
+      'JSON',
+      'Basics of SQL',
+      'Basics of NoSQL',
+    ],
   },
   {
     name: 'Frameworks and libraries',
     Icon: FrameworkIcon,
-    pattern: ['Spring boot', 'Micronaut', 'Symfony', 'Angular', 'NestJS', 'NextJS', 'Nuxtjs', 'React', 'VueJS', 'React native', 'Expo'],
+    pattern: [
+      'Spring boot',
+      'Micronaut',
+      'Symfony',
+      'Angular',
+      'NestJS',
+      'NextJS',
+      'Nuxtjs',
+      'React',
+      'VueJS',
+      'React native',
+      'Expo',
+    ],
   },
   {name: 'Database', Icon: DBIcon, pattern: ['MongoDB', 'MySQL', 'PostgreSQL']},
   {
@@ -31,7 +53,14 @@ const skills = [
   {
     name: 'IDE',
     Icon: IdeIcon,
-    pattern: ['IntelliJ IDEA', 'WebStorm', 'PhpStorm', 'PyCharm', 'Visual Studio Code', 'Sublime Text'],
+    pattern: [
+      'IntelliJ IDEA',
+      'WebStorm',
+      'PhpStorm',
+      'PyCharm',
+      'Visual Studio Code',
+      'Sublime Text',
+    ],
   },
   {name: 'Systems', Icon: OsIcon, pattern: ['Mac OSX', 'Linux', 'Windows']},
   {name: 'Version Control', Icon: GitIcon, pattern: ['Git', 'Bitbucket']},
@@ -67,7 +96,16 @@ const skills = [
   {
     name: 'I am currently learning',
     Icon: LearnIcon,
-    pattern: ['oAuth', 'Microservices', 'Electron', 'Photoshop', 'Illustrator', 'Python (Flask)', 'Docker', 'Web3'],
+    pattern: [
+      'oAuth',
+      'Microservices',
+      'Electron',
+      'Photoshop',
+      'Illustrator',
+      'Python (Flask)',
+      'Docker',
+      'Web3',
+    ],
   },
 ];
 
@@ -83,46 +121,55 @@ const skillsPageSchema = {
     item: {
       '@type': 'DefinedTermSet',
       name,
-      hasDefinedTerm: pattern.map((term) => ({'@type': 'DefinedTerm', name: term})),
+      hasDefinedTerm: pattern.map(term => ({'@type': 'DefinedTerm', name: term})),
     },
   })),
 };
 
 const Skills = () => {
   return (
-    <section className={'flex flex-col gap-8 w-full'} aria-labelledby={'skills-title'}>
+    <section
+      className={'flex w-full flex-col gap-8'}
+      aria-labelledby={'skills-title'}>
       <JsonLd data={skillsPageSchema} />
       <div className={'text-white'}>
-        <h1 id={'skills-title'} className={'text-4xl font-bold mb-3'}>Technical Skills</h1>
-        <p className={'text-lg text-gray-300 max-w-3xl'}>
-          Core backend, frontend, database, tooling, cloud, and product-development technologies used by Vladimir Antin.
+        <h1
+          id={'skills-title'}
+          className={'mb-3 text-4xl font-bold'}>
+          Technical Skills
+        </h1>
+        <p className={'max-w-3xl text-lg text-gray-300'}>
+          Core backend, frontend, database, tooling, cloud, and product-development technologies
+          used by Vladimir Antin.
         </p>
       </div>
-      <div className={'flex flex-col xl:flex-row flex-wrap gap-10 w-full'}>
-      {skills.map(({name, Icon, pattern}, idx) => (
-        <article
-          key={'skills-' + idx}
-          className={'flex flex-col bg-white rounded-xl xl:w-1/4 animate-fade-in-left xl:grayscale xl:hover:grayscale-0'}
-        >
-          <div className={'flex flex-row gap-5 items-center p-2 mb-10'}>
-            <Icon
-              width={50}
-              height={50}
-            />
-            <h2 className={'font-bold'}>{name}</h2>
-          </div>
-          <div className={'flex flex-row flex-wrap gap-3 w-full p-2'}>
-            {pattern.map((text, textIdx) => (
-              <p
-                key={'pattern-' + idx + '-skill-' + textIdx}
-                className={'bg-gray-300 border border-gray-300 shadow shadow-gray-300 rounded-full px-2 py-1 text-black cursor-pointer hover:scale-125 duration-300 hover:font-bold'}
-              >
-                {text}
-              </p>
-            ))}
-          </div>
-        </article>
-      ))}
+      <div className={'flex w-full flex-col flex-wrap gap-10 xl:flex-row'}>
+        {skills.map(({name, Icon, pattern}, idx) => (
+          <article
+            key={'skills-' + idx}
+            className={
+              'flex animate-fade-in-left flex-col rounded-xl bg-white xl:w-1/4 xl:grayscale xl:hover:grayscale-0'
+            }>
+            <div className={'mb-10 flex flex-row items-center gap-5 p-2'}>
+              <Icon
+                width={50}
+                height={50}
+              />
+              <h2 className={'font-bold'}>{name}</h2>
+            </div>
+            <div className={'flex w-full flex-row flex-wrap gap-3 p-2'}>
+              {pattern.map((text, textIdx) => (
+                <p
+                  key={'pattern-' + idx + '-skill-' + textIdx}
+                  className={
+                    'cursor-pointer rounded-full border border-gray-300 bg-gray-300 px-2 py-1 text-black shadow shadow-gray-300 duration-300 hover:scale-125 hover:font-bold'
+                  }>
+                  {text}
+                </p>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

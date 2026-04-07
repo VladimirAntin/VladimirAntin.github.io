@@ -7,8 +7,7 @@ const CVIcon = ({color = '#ffffff', height = 64, width = 64}) => {
       width={width}
       height={height}
       viewBox="0 0 48 48"
-      id="a"
-    >
+      id="a">
       <g id="b">
         <line
           id="c"

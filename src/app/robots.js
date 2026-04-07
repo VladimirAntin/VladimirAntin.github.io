@@ -1,5 +1,7 @@
 import {siteUrl} from '@/data/seo';
 
+export const dynamic = 'force-static';
+
 export default function robots() {
   return {
     rules: {
@@ -10,4 +12,3 @@ export default function robots() {
     host: siteUrl,
   };
 }
-

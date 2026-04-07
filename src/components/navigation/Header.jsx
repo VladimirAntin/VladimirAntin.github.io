@@ -6,10 +6,9 @@ const Header = () => {
   return (
     <header>
       <Link
-        className={'flex flex-row items-center gap-2 h-[10vh] mb-20 xl:mb-0 '}
+        className={'mb-20 flex h-[10vh] flex-row items-center gap-2 xl:mb-0'}
         href={'/'}
-        aria-label={'Go to Vladimir Antin home page'}
-      >
+        aria-label={'Go to Vladimir Antin home page'}>
         <Image
           width={100}
           height={100}
@@ -18,8 +17,8 @@ const Header = () => {
           priority
         />
         <div>
-          <p className={'text-2xl text-white font-bold'}>Vladimir Antin</p>
-          <p className={'text-xl text-gray-400 font-medium'}>Software Engineer</p>
+          <p className={'text-2xl font-bold text-white'}>Vladimir Antin</p>
+          <p className={'text-xl font-medium text-gray-400'}>Software Engineer</p>
         </div>
       </Link>
     </header>

@@ -43,24 +43,28 @@ const projectSchema = {
 
 const NgTyped = () => {
   return (
-    <section className={'bg-white w-full xl:w-3/5 rounded-2xl'} aria-labelledby={'ng-typed-title'}>
+    <section
+      className={'w-full rounded-2xl bg-white xl:w-3/5'}
+      aria-labelledby={'ng-typed-title'}>
       <JsonLd data={projectSchema} />
-      <div className={'flex justify-between items-center my-5 mx-2'}>
+      <div className={'mx-2 my-5 flex items-center justify-between'}>
         <div></div>
-        <h1 id={'ng-typed-title'} className={'text-center text-2xl font-bold m-2'}>ng-typed</h1>
-        <div className={'flex justify-end items-center'}>
+        <h1
+          id={'ng-typed-title'}
+          className={'m-2 text-center text-2xl font-bold'}>
+          ng-typed
+        </h1>
+        <div className={'flex items-center justify-end'}>
           {links.map(({href, external, Icon, title}) => (
             <Link
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer noopener' : undefined}
-              className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
-              key={'href-' + href}
-            >
+              className={'rounded-2xl p-2 grayscale duration-300 hover:scale-125 hover:grayscale-0'}
+              key={'href-' + href}>
               <Tooltip
                 content={title}
-                className={'text-white bg-black rounded-2xl px-2 py-1'}
-              >
+                className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                 <Icon />
               </Tooltip>
             </Link>
@@ -69,8 +73,9 @@ const NgTyped = () => {
       </div>
       <div className={'px-4 pb-4 text-gray-700'}>
         <p>
-          <strong>ng-typed</strong> is an Angular typing-effect library designed for portfolio sites, landing pages,
-          and UI sections that need animated text with a lightweight developer-friendly API.
+          <strong>ng-typed</strong> is an Angular typing-effect library designed for portfolio
+          sites, landing pages, and UI sections that need animated text with a lightweight
+          developer-friendly API.
         </p>
       </div>
       <IframeClient src={'https://ng-typed.netlify.app/'} />
@@ -98,7 +103,7 @@ export const metadata = {
     title: 'ng-typed | Angular Typing Effect Library by Vladimir Antin',
     description: 'Open-source Angular library for typing-effect animations with live demo.',
     url: `${siteUrl}/projects/ng-typed`,
-    images: [{ url: '/images/angular.png', width: 1200, height: 630, alt: 'ng-typed preview' }],
+    images: [{url: '/images/angular.png', width: 1200, height: 630, alt: 'ng-typed preview'}],
   },
   twitter: {
     card: 'summary_large_image',

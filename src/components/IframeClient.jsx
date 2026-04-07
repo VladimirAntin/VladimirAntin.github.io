@@ -2,11 +2,11 @@
 
 import {memo} from 'react';
 
-const IframeClient = (props) => {
+const IframeClient = props => {
   return (
     <iframe
       {...props}
-      className={'w-full min-h-[70vh]'}
+      className={'min-h-[70vh] w-full'}
     />
   );
 };

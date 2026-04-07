@@ -8,17 +8,14 @@ const CloseIcon = ({width = 32, height = 32, color = '#000', className = ''}) =>
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
+      className={className}>
       <g
         id="SVGRepo_bgCarrier"
-        strokeWidth="0"
-      ></g>
+        strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
         strokeLinecap="round"
-        strokeLinejoin="round"
-      ></g>
+        strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">
         <g id="Menu / Close_LG">
           <path
@@ -27,8 +24,7 @@ const CloseIcon = ({width = 32, height = 32, color = '#000', className = ''}) =>
             stroke={color}
             strokeWidth="2"
             strokeLinecap="round"
-            strokeLinejoin="round"
-          ></path>
+            strokeLinejoin="round"></path>
         </g>
       </g>
     </svg>

@@ -6,8 +6,7 @@ const NetlifyIcon = ({width = 32, height = 32}) => {
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      viewBox="0 0 40 40"
-    >
+      viewBox="0 0 40 40">
       <defs>
         <radialGradient
           id="random-gradient-123"
@@ -15,8 +14,7 @@ const NetlifyIcon = ({width = 32, height = 32}) => {
           r="100.11%"
           fx="50%"
           fy="0%"
-          gradientTransform="matrix(0 .9989 -1.152 0 .5 -.5)"
-        >
+          gradientTransform="matrix(0 .9989 -1.152 0 .5 -.5)">
           <stop
             offset="0%"
             stopColor="#20C6B7"

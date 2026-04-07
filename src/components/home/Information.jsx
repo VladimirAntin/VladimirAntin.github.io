@@ -42,9 +42,10 @@ const Information = () => {
     <Tag tagName={'Information'}>
       <Tag
         tagName={'Position'}
-        className={'pl-5'}
-      >
-        <h1 id={'home-hero-title'} className={'text-white pl-5 py-5 text-3xl font-bold'}>
+        className={'pl-5'}>
+        <h1
+          id={'home-hero-title'}
+          className={'py-5 pl-5 text-3xl font-bold text-white'}>
           <Typing
             text={'Software Engineer'}
             onDone={() => setType(TypeState.CITY)}
@@ -54,16 +55,14 @@ const Information = () => {
 
       <Tag
         tagName={'Location'}
-        className={'pl-5'}
-      >
+        className={'pl-5'}>
         <div className={'pl-5'}>
           {location.map(({tag, value, id}) => (
             <Fragment key={tag}>
               <Tag
                 tagName={tag}
-                containerClass={'flex items-center'}
-              >
-                <p className={'text-white px-1 text-3xl'}>
+                containerClass={'flex items-center'}>
+                <p className={'px-1 text-3xl text-white'}>
                   {type >= id ? (
                     <Typing
                       text={value}
@@ -78,19 +77,16 @@ const Information = () => {
       </Tag>
       <Tag
         tagName={'Full-Stack-Developer'}
-        className={'pl-5'}
-      >
+        className={'pl-5'}>
         <Tag
           tagName={'Backend'}
-          className={'pl-5'}
-        >
+          className={'pl-5'}>
           {backend.map(({tag, value, id}) => (
             <Fragment key={tag}>
               <Tag
                 tagName={tag}
-                className={'pl-5 py-1'}
-              >
-                <p className={'text-white pl-5 text-3xl'}>
+                className={'py-1 pl-5'}>
+                <p className={'pl-5 text-3xl text-white'}>
                   {type >= id ? (
                     <Typing
                       text={value}
@@ -104,15 +100,13 @@ const Information = () => {
         </Tag>
         <Tag
           tagName={'Frontend'}
-          className={'pl-5'}
-        >
+          className={'pl-5'}>
           {frontend.map(({tag, value, id}) => (
             <Fragment key={tag}>
               <Tag
                 tagName={tag}
-                className={'pl-5 py-1'}
-              >
-                <p className={'text-white pl-5 text-3xl'}>
+                className={'py-1 pl-5'}>
+                <p className={'pl-5 text-3xl text-white'}>
                   {type >= id ? (
                     <Typing
                       text={value}

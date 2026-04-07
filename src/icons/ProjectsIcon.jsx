@@ -9,8 +9,7 @@ const ProjectsIcon = ({color = '#ffffff', height = 64, width = 64}) => {
       viewBox="0 0 32 32"
       xmlSpace="preserve"
       stroke={color}
-      strokeWidth="0.32"
-    >
+      strokeWidth="0.32">
       <g
         id="SVGRepo_bgCarrier"
         strokeWidth="0"

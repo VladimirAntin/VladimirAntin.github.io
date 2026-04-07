@@ -1,5 +1,7 @@
 import {siteName, siteUrl} from '@/data/seo';
 
+export const dynamic = 'force-static';
+
 export default function manifest() {
   return {
     name: siteName,
@@ -25,4 +27,3 @@ export default function manifest() {
     ],
   };
 }
-

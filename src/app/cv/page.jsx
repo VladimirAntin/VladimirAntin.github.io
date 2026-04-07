@@ -1,11 +1,11 @@
 import {memo} from 'react';
-import DownloadIcon from '@/icons/DownloadIcon';
+import DownloadIcon from '@icons/DownloadIcon';
 import dynamic from 'next/dynamic';
-import Tooltip from '@/components/tooltip/Tooltip';
-import JsonLd from '@/components/seo/JsonLd';
-import {defaultOgImage, siteUrl} from '@/data/seo';
+import Tooltip from '@components/tooltip/Tooltip';
+import JsonLd from '@components/seo/JsonLd';
+import {defaultOgImage, siteUrl} from '@data/seo';
 
-const CVViewer = dynamic(() => import('@/components/pdf/CVViewer'), {ssr: false});
+const CVViewer = dynamic(() => import('@components/pdf/CVViewer'));
 
 const cvPageSchema = {
   '@context': 'https://schema.org',
@@ -25,20 +25,23 @@ const cvPageSchema = {
 
 const CV = () => {
   return (
-    <section className={'flex justify-center w-full xl:w-3/5'} aria-labelledby={'cv-title'}>
+    <section
+      className={'flex w-full justify-center xl:w-3/5'}
+      aria-labelledby={'cv-title'}>
       <JsonLd data={cvPageSchema} />
-      <div className={'min-h-screen min-w-[100px] flex flex-col items-center bg-white rounded-2xl pb-[30px] animate-fade-in-left'}>
-        <div className={'flex justify-between items-center bg-gray-300 p-4 w-full rounded-t-2xl'}>
+      <div
+        className={
+          'flex min-h-screen min-w-[100px] animate-fade-in-left flex-col items-center rounded-2xl bg-white pb-[30px]'
+        }>
+        <div className={'flex w-full items-center justify-between rounded-t-2xl bg-gray-300 p-4'}>
           <h1 id={'cv-title'}>Vladimir Antin CV</h1>
           <a
-            className={'flex items-center justify-center bg-white rounded-2xl group hover:bg-black'}
+            className={'group flex items-center justify-center rounded-2xl bg-white hover:bg-black'}
             href={'/Vladimir-Antin-CV.pdf'}
-            download
-          >
+            download>
             <Tooltip
               content={'Download CV'}
-              className={'bg-black text-white px-2 py-1 rounded-2xl'}
-            >
+              className={'rounded-2xl bg-black px-2 py-1 text-white'}>
               <DownloadIcon className={'group-hover:fill-white'} />
             </Tooltip>
           </a>
@@ -65,8 +68,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'Vladimir Antin | CV',
-    description:
-      'Download the CV of Vladimir Antin, full stack developer from Novi Sad, Serbia.',
+    description: 'Download the CV of Vladimir Antin, full stack developer from Novi Sad, Serbia.',
     url: `${siteUrl}/cv`,
     images: [{url: defaultOgImage, width: 300, height: 300, alt: 'Vladimir Antin'}],
   },

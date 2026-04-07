@@ -11,25 +11,48 @@ import v3 from '@/data/spring-core.v1.3.js';
 import v4 from '@/data/spring-core.v1.4.js';
 
 const versions = [
-  {title: 'v1.1 (Core)', content: v1, dependency: dependency('1.1'), path: path('1.1'), tabId: 'v1.1'},
-  {title: 'v1.2 (AuditLog)', content: v2, dependency: dependency('1.2'), path: path('1.2'), tabId: 'v1.2'},
-  {title: 'v1.3 (Extended controller)', content: v3, dependency: dependency('1.3'), path: path('1.3'), tabId: 'v1.3'},
-  {title: 'v1.4 (Base security)', content: v4, dependency: dependency('1.4'), path: path('1.4'), tabId: 'v1.4'},
+  {
+    title: 'v1.1 (Core)',
+    content: v1,
+    dependency: dependency('1.1'),
+    path: path('1.1'),
+    tabId: 'v1.1',
+  },
+  {
+    title: 'v1.2 (AuditLog)',
+    content: v2,
+    dependency: dependency('1.2'),
+    path: path('1.2'),
+    tabId: 'v1.2',
+  },
+  {
+    title: 'v1.3 (Extended controller)',
+    content: v3,
+    dependency: dependency('1.3'),
+    path: path('1.3'),
+    tabId: 'v1.3',
+  },
+  {
+    title: 'v1.4 (Base security)',
+    content: v4,
+    dependency: dependency('1.4'),
+    path: path('1.4'),
+    tabId: 'v1.4',
+  },
 ];
 
 const SpringCore = () => {
-  const copyText = (text) => {
+  const copyText = text => {
     navigator.clipboard.writeText(text);
     enqueueSnackbar('Thanks! Text has been copied.', {
       variant: 'default',
       autoHideDuration: 4000,
       anchorOrigin: {horizontal: 'center', vertical: 'top'},
-      action: (key) => (
+      action: key => (
         <Fragment>
           <button
             onClick={() => closeSnackbar(key)}
-            className={'text-purple-600'}
-          >
+            className={'text-purple-600'}>
             Ok
           </button>
         </Fragment>
@@ -44,7 +67,7 @@ const SpringCore = () => {
 
   const selectedVersion = useMemo(() => {
     setExample(0);
-    return versions.find((v) => v.tabId === version);
+    return versions.find(v => v.tabId === version);
   }, [version]);
   const selectedExample = useMemo(() => {
     setYourCode(0);
@@ -52,9 +75,18 @@ const SpringCore = () => {
     setDocs(0);
     return selectedVersion.content.examples.find((_, id) => id === example);
   }, [example, selectedVersion]);
-  const selectedYourCode = useMemo(() => selectedExample.yourCode?.find((_, id) => id === yourCode), [yourCode, selectedExample]);
-  const selectedGenerator = useMemo(() => selectedExample.generator?.find((_, id) => id === generator), [generator, selectedExample]);
-  const selectedDocs = useMemo(() => selectedExample.docs?.find((_, id) => id === docs), [docs, selectedExample]);
+  const selectedYourCode = useMemo(
+    () => selectedExample.yourCode?.find((_, id) => id === yourCode),
+    [yourCode, selectedExample],
+  );
+  const selectedGenerator = useMemo(
+    () => selectedExample.generator?.find((_, id) => id === generator),
+    [generator, selectedExample],
+  );
+  const selectedDocs = useMemo(
+    () => selectedExample.docs?.find((_, id) => id === docs),
+    [docs, selectedExample],
+  );
 
   return (
     <>
@@ -62,21 +94,19 @@ const SpringCore = () => {
       <Tabs
         tabs={versions}
         activeTab={version}
-        url={(tabId) => `/projects/spring-core?version=${tabId}`}
+        url={tabId => `/projects/spring-core?version=${tabId}`}
       />
 
-      <div className={'flex flex-col xl:flex-row gap-5'}>
-        <div className={'flex flex-col gap-2 w-2/5'}>
+      <div className={'flex flex-col gap-5 xl:flex-row'}>
+        <div className={'flex w-2/5 flex-col gap-2'}>
           <p>Dependency</p>
           <code className="p-4">
             <Tooltip
               content={'Copy text'}
-              className={'bg-black text-white rounded-2xl px-2 py-1'}
-            >
+              className={'rounded-2xl bg-black px-2 py-1 text-white'}>
               <pre
-                className="text-purple-500 cursor-pointer hover:text-blue-500 text-[10px]"
-                onClick={() => copyText(selectedVersion.dependency)}
-              >
+                className="cursor-pointer text-[10px] text-purple-500 hover:text-blue-500"
+                onClick={() => copyText(selectedVersion.dependency)}>
                 {selectedVersion.dependency}
               </pre>
             </Tooltip>
@@ -85,12 +115,10 @@ const SpringCore = () => {
           <code className="">
             <Tooltip
               content={'Copy text'}
-              className={'bg-black text-white rounded-2xl px-2 py-1'}
-            >
+              className={'rounded-2xl bg-black px-2 py-1 text-white'}>
               <pre
-                className="text-purple-500 cursor-pointer hover:text-blue-500 text-[10px]"
-                onClick={() => copyText(selectedVersion.path)}
-              >
+                className="cursor-pointer text-[10px] text-purple-500 hover:text-blue-500"
+                onClick={() => copyText(selectedVersion.path)}>
                 {selectedVersion.path}
               </pre>
             </Tooltip>
@@ -116,12 +144,12 @@ const SpringCore = () => {
                 />
                 <Tooltip
                   content={'Copy text'}
-                  className={'bg-black text-white rounded-2xl px-2 py-1'}
-                >
+                  className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                   <div
-                    className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500 cursor-pointer'}
-                    onClick={() => copyText(selectedYourCode?.text)}
-                  >
+                    className={
+                      'max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500'
+                    }
+                    onClick={() => copyText(selectedYourCode?.text)}>
                     <code>
                       <pre dangerouslySetInnerHTML={{__html: selectedYourCode?.text}} />
                     </code>
@@ -139,12 +167,12 @@ const SpringCore = () => {
                 />
                 <Tooltip
                   content={'Copy text'}
-                  className={'bg-black text-white rounded-2xl px-2 py-1'}
-                >
+                  className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                   <div
-                    className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500 cursor-pointer'}
-                    onClick={() => copyText(selectedGenerator?.text)}
-                  >
+                    className={
+                      'max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500'
+                    }
+                    onClick={() => copyText(selectedGenerator?.text)}>
                     <code>
                       <pre dangerouslySetInnerHTML={{__html: selectedGenerator?.text}} />
                     </code>
@@ -161,12 +189,12 @@ const SpringCore = () => {
                 />
                 <Tooltip
                   content={'Copy text'}
-                  className={'bg-black text-white rounded-2xl px-2 py-1'}
-                >
+                  className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                   <div
-                    className={'max-w-full overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500 cursor-pointer'}
-                    onClick={() => copyText(selectedDocs?.text)}
-                  >
+                    className={
+                      'max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500'
+                    }
+                    onClick={() => copyText(selectedDocs?.text)}>
                     <code>
                       <pre dangerouslySetInnerHTML={{__html: selectedDocs?.text}} />
                     </code>

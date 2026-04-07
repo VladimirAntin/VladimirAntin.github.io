@@ -21,22 +21,29 @@ const Navigation = () => {
   const pathname = usePathname();
 
   return (
-    <div className={'hidden xl:flex w-[20vw] mt-[100px]'}>
-      <nav className={'flex flex-col gap-5 w-full'}>
+    <div className={'mt-[100px] hidden w-[20vw] xl:flex'}>
+      <nav className={'flex w-full flex-col gap-5'}>
         {navItems.map(({href, title, Icon}, idx) => (
           <Link
             href={href}
             key={'nav-item-' + idx}
-            className={cn('flex gap-1 text-black group h-[56px] justify-between items-center bg-white rounded-r-full px-3 w-min hover:w-1/2', {
-              'bg-black': pathname === href,
-            })}
-          >
+            className={cn(
+              'group flex h-[56px] w-min items-center justify-between gap-1 rounded-r-full bg-white px-3 text-black hover:w-1/2',
+              {
+                'bg-black': pathname === href,
+              },
+            )}>
             <Icon
               width={32}
               height={32}
               color={pathname === href ? '#fff' : '#000'}
             />
-            <p className={cn('font-bold hidden group-hover:block animate-fade-in-left', {'text-white': pathname === href})}>{title}</p>
+            <p
+              className={cn('hidden animate-fade-in-left font-bold group-hover:block', {
+                'text-white': pathname === href,
+              })}>
+              {title}
+            </p>
           </Link>
         ))}
       </nav>

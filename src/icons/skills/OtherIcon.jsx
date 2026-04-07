@@ -8,8 +8,7 @@ const OtherIcon = ({width = 24, height = 24}) => {
       height={height}
       viewBox="0 0 64 64"
       width={width}
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <g fill="#f0bc5e">
         <path d="m39 57h-14c-2.757 0-5 2.243-5 5h24c0-2.757-2.243-5-5-5z" />
         <path d="m25 7h14c2.757 0 5-2.243 5-5h-24c0 2.757 2.243 5 5 5z" />

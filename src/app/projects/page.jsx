@@ -130,7 +130,8 @@ const projects = [
   },
   {
     title: 'Ng Typed',
-    description: 'Ng Typed is lib for portfolio in Angular 6. This is simple type-on effect component for angular websites.',
+    description:
+      'Ng Typed is lib for portfolio in Angular 6. This is simple type-on effect component for angular websites.',
     image: '/images/angular.png',
     url: '/projects/ng-typed',
     typed: true,
@@ -157,7 +158,8 @@ const projects = [
   },
   {
     title: 'eBook',
-    description: 'eBook is web application. Application created with Spring Boot framework, Angular framework and use Lucene lib for searching index of books.',
+    description:
+      'eBook is web application. Application created with Spring Boot framework, Angular framework and use Lucene lib for searching index of books.',
     image: '/images/ebook-project.png',
     links: [
       {
@@ -176,7 +178,8 @@ const projects = [
   },
   {
     title: 'eLearning',
-    description: 'eLearning is web application. Application created with Spring Boot framework, Angular framework and use websockets for live chat.',
+    description:
+      'eLearning is web application. Application created with Spring Boot framework, Angular framework and use websockets for live chat.',
     image: '/images/elearning-project.png',
     links: [
       {
@@ -217,8 +220,7 @@ const ContainerImage = ({children, url, ...props}) => {
     <Link
       href={url}
       rel={props.target === '_blank' ? 'noreferrer noopener' : undefined}
-      {...props}
-    >
+      {...props}>
       {children}
     </Link>
   );
@@ -226,25 +228,32 @@ const ContainerImage = ({children, url, ...props}) => {
 
 const Projects = () => {
   return (
-    <section className={'flex flex-col gap-10 w-full xl:w-3/5'} aria-labelledby={'projects-title'}>
+    <section
+      className={'flex w-full flex-col gap-10 xl:w-3/5'}
+      aria-labelledby={'projects-title'}>
       <JsonLd data={projectsPageSchema} />
       <div className={'text-white'}>
-        <h1 id={'projects-title'} className={'text-4xl font-bold mb-3'}>Projects</h1>
-        <p className={'text-lg text-gray-300 max-w-3xl'}>
-          Selected web, mobile, Java, Spring Boot, Angular, and open-source projects built by Vladimir Antin.
+        <h1
+          id={'projects-title'}
+          className={'mb-3 text-4xl font-bold'}>
+          Projects
+        </h1>
+        <p className={'max-w-3xl text-lg text-gray-300'}>
+          Selected web, mobile, Java, Spring Boot, Angular, and open-source projects built by
+          Vladimir Antin.
         </p>
       </div>
       {projects.map(({title, description, image, links, url, typed, external}, idx) => (
         <article
           key={'project-' + idx}
-          className={'bg-white rounded-2xl p-4 flex justify-between gap-4'}
-        >
+          className={'flex justify-between gap-4 rounded-2xl bg-white p-4'}>
           <ContainerImage
-            className={'flex flex-col gap-2 border border-gray-600 bg-gray-600 rounded-2xl p-4 hover:scale-110 duration-300'}
+            className={
+              'flex flex-col gap-2 rounded-2xl border border-gray-600 bg-gray-600 p-4 duration-300 hover:scale-110'
+            }
             url={url}
-            target={external ? '_blank' : undefined}
-          >
-            <h2 className={'text-white text-2xl font-bold'}>{title}</h2>
+            target={external ? '_blank' : undefined}>
+            <h2 className={'text-2xl font-bold text-white'}>{title}</h2>
             <Image
               src={image}
               alt={`${title} project preview`}
@@ -252,7 +261,7 @@ const Projects = () => {
               height={200}
             />
           </ContainerImage>
-          <div className={'flex flex-col items-end justify-between gap-2 w-1/2'}>
+          <div className={'flex w-1/2 flex-col items-end justify-between gap-2'}>
             <p className={'font-medium'}>{!typed ? description : <Typing text={description} />}</p>
             <div className={'flex gap-4'}>
               {links.map(({href, external, Icon, title: linkTitle}) => (
@@ -261,13 +270,13 @@ const Projects = () => {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noreferrer noopener' : undefined}
                   aria-label={`${linkTitle} link for ${title}`}
-                  className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
-                  key={'href-' + href}
-                >
+                  className={
+                    'rounded-2xl p-2 grayscale duration-300 hover:scale-125 hover:grayscale-0'
+                  }
+                  key={'href-' + href}>
                   <Tooltip
                     content={linkTitle}
-                    className={'text-white bg-black rounded-2xl px-2 py-1'}
-                  >
+                    className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                     <Icon />
                   </Tooltip>
                 </Link>
@@ -276,15 +285,20 @@ const Projects = () => {
           </div>
         </article>
       ))}
-      <section className={'flex flex-col gap-4 p-4 bg-white rounded-2xl'} aria-labelledby={'other-projects-title'}>
-        <h2 id={'other-projects-title'} className={'text-gray-500'}>Other projects</h2>
-        <div className={'pl-5 flex flex-col gap-4'}>
+      <section
+        className={'flex flex-col gap-4 rounded-2xl bg-white p-4'}
+        aria-labelledby={'other-projects-title'}>
+        <h2
+          id={'other-projects-title'}
+          className={'text-gray-500'}>
+          Other projects
+        </h2>
+        <div className={'flex flex-col gap-4 pl-5'}>
           {links.map(({name, link}, idx) => (
             <Link
               href={link}
               key={'link-' + idx}
-              className={'text-purple-600 hover:underline'}
-            >
+              className={'text-purple-600 hover:underline'}>
               {name}
             </Link>
           ))}

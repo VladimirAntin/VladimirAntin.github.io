@@ -9,12 +9,12 @@ const ParticlesCp = () => {
 
   useEffect(() => {
     (async () =>
-      await initParticlesEngine(async (engine) => {
+      await initParticlesEngine(async engine => {
         await loadSlim(engine);
       }))().then(() => setIsReady(true));
   }, []);
 
-  return (!isReady ? null:
+  return !isReady ? null : (
     <>
       <Particles
         id="tsparticles"

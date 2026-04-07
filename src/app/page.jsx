@@ -61,12 +61,16 @@ export const metadata = {
 
 const Home = () => {
   return (
-    <div className={'flex flex-col items-center gap-4 xl:flex-row xl:items-start xl:gap-0 w-full'}>
+    <div className={'flex w-full flex-col items-center gap-4 xl:flex-row xl:items-start xl:gap-0'}>
       <JsonLd data={homePageSchema} />
-      <section className={'w-full xl:w-1/2'} aria-labelledby={'home-hero-title'}>
+      <section
+        className={'w-full xl:w-1/2'}
+        aria-labelledby={'home-hero-title'}>
         <Information />
       </section>
-      <aside className={'flex flex-col items-center xl:items-start'} aria-label={'Professional profiles and references'}>
+      <aside
+        className={'flex flex-col items-center xl:items-start'}
+        aria-label={'Professional profiles and references'}>
         <References />
       </aside>
     </div>

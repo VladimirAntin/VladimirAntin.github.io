@@ -25,26 +25,29 @@ const MobileNavigation = () => {
 
   return (
     <>
-      {opened ? <div className={'fixed inset-0 bg-fixed w-screen h-screen bg-black bg-opacity-80 z-40'} /> : null}
+      {opened ? (
+        <div className={'fixed inset-0 z-40 h-screen w-screen bg-black bg-opacity-80 bg-fixed'} />
+      ) : null}
       <div
-        className={cn('fixed bottom-10 right-10 flex flex-col items-end xl:hidden z-50')}
-        onBlur={(e) => {
+        className={cn('fixed bottom-10 right-10 z-50 flex flex-col items-end xl:hidden')}
+        onBlur={e => {
           if (!e.relatedTarget) {
             setOpened(false);
           }
-        }}
-      >
-        <nav className={cn('flex flex-col gap-5 w-full mb-4', {hidden: !opened})}>
+        }}>
+        <nav className={cn('mb-4 flex w-full flex-col gap-5', {hidden: !opened})}>
           {navItems.map(({href, title, Icon}, idx, items) => (
             <Link
               href={href}
               key={'nav-item-' + idx}
               onClick={() => setOpened(false)}
-              className={cn('flex gap-1 text-black h-[56px] justify-between items-center bg-white rounded-full px-3 w-full animate-fade-in-right ', {
-                'bg-black': pathname === href,
-              })}
-              style={{animationDuration: `${200 * (items.length - idx)}ms`}}
-            >
+              className={cn(
+                'flex h-[56px] w-full animate-fade-in-right items-center justify-between gap-1 rounded-full bg-white px-3 text-black',
+                {
+                  'bg-black': pathname === href,
+                },
+              )}
+              style={{animationDuration: `${200 * (items.length - idx)}ms`}}>
               <p className={cn('font-bold', {'text-white': pathname === href})}>{title}</p>
               <Icon
                 width={32}
@@ -55,16 +58,18 @@ const MobileNavigation = () => {
           ))}
         </nav>
         <button
-          className={cn('rounded-full text-white bg-black p-2 size-[56px] flex items-center justify-center z-10 duration-500', {'bg-white': opened})}
-          onClick={() => setOpened((v) => !v)}
-        >
+          className={cn(
+            'z-10 flex size-[56px] items-center justify-center rounded-full bg-black p-2 text-white duration-500',
+            {'bg-white': opened},
+          )}
+          onClick={() => setOpened(v => !v)}>
           <CloseIcon
             color={'#000'}
-            className={cn({'animate-fade-out duration-500 hidden': !opened})}
+            className={cn({'hidden animate-fade-out duration-500': !opened})}
           />
           <MenuIcon
             color={'#fff'}
-            className={cn({'animate-fade-out duration-500 hidden': opened})}
+            className={cn({'hidden animate-fade-out duration-500': opened})}
           />
         </button>
       </div>

@@ -36,24 +36,28 @@ const projectSchema = {
 
 const SpringCorePage = () => {
   return (
-    <section className={' w-full xl:w-3/5 bg-white p-5 rounded-2xl'} aria-labelledby={'spring-core-title'}>
+    <section
+      className={'w-full rounded-2xl bg-white p-5 xl:w-3/5'}
+      aria-labelledby={'spring-core-title'}>
       <JsonLd data={projectSchema} />
-      <div className={'flex justify-between items-center my-5'}>
+      <div className={'my-5 flex items-center justify-between'}>
         <div></div>
-        <h1 id={'spring-core-title'} className="text-center text-2xl font-bold m-2">spring-core</h1>
-        <div className={'flex justify-end items-center'}>
+        <h1
+          id={'spring-core-title'}
+          className="m-2 text-center text-2xl font-bold">
+          spring-core
+        </h1>
+        <div className={'flex items-center justify-end'}>
           {links.map(({href, external, Icon, title}) => (
             <Link
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer noopener' : undefined}
-              className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
-              key={'href-' + href}
-            >
+              className={'rounded-2xl p-2 grayscale duration-300 hover:scale-125 hover:grayscale-0'}
+              key={'href-' + href}>
               <Tooltip
                 content={title}
-                className={'text-white bg-black rounded-2xl px-2 py-1'}
-              >
+                className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                 <Icon />
               </Tooltip>
             </Link>
@@ -62,8 +66,9 @@ const SpringCorePage = () => {
       </div>
       <div className={'mb-6 text-gray-700'}>
         <p>
-          <strong>spring-core</strong> is a Java and Spring Boot library focused on component generation and reusable
-          backend development patterns, published for easier adoption through Maven repositories.
+          <strong>spring-core</strong> is a Java and Spring Boot library focused on component
+          generation and reusable backend development patterns, published for easier adoption
+          through Maven repositories.
         </p>
       </div>
       <SpringCore />
@@ -91,12 +96,13 @@ export const metadata = {
     title: 'spring-core | Spring Boot Library by Vladimir Antin',
     description: 'Open-source Spring Boot component generator library available on Maven Central.',
     url: `${siteUrl}/projects/spring-core`,
-    images: [{ url: '/images/java.png', width: 1200, height: 630, alt: 'spring-core preview' }],
+    images: [{url: '/images/java.png', width: 1200, height: 630, alt: 'spring-core preview'}],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'spring-core | Spring Boot Library by Vladimir Antin',
-    description: 'Open-source Spring Boot component generator library available on Maven repositories.',
+    description:
+      'Open-source Spring Boot component generator library available on Maven repositories.',
     images: ['/images/java.png'],
   },
 };

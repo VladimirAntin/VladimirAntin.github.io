@@ -32,12 +32,19 @@ const contactPageSchema = {
 
 const ContactMe = () => {
   return (
-    <section className={'flex flex-col items-center w-full xl:w-3/5 gap-10'} aria-labelledby={'contact-title'}>
+    <section
+      className={'flex w-full flex-col items-center gap-10 xl:w-3/5'}
+      aria-labelledby={'contact-title'}>
       <JsonLd data={contactPageSchema} />
-      <div className={'text-center text-white max-w-2xl'}>
-        <h1 id={'contact-title'} className={'text-4xl font-bold mb-3'}>Contact Vladimir Antin</h1>
+      <div className={'max-w-2xl text-center text-white'}>
+        <h1
+          id={'contact-title'}
+          className={'mb-3 text-4xl font-bold'}>
+          Contact Vladimir Antin
+        </h1>
         <p className={'text-lg text-gray-300'}>
-          Available for freelance projects, product development, long-term collaboration, and technical consulting.
+          Available for freelance projects, product development, long-term collaboration, and
+          technical consulting.
         </p>
       </div>
       <Image
@@ -48,15 +55,17 @@ const ContactMe = () => {
         height={300}
         priority
       />
-      <div className={'flex flex-col gap-4 bg-white w-full xl:w-1/2 p-5 rounded-2xl'}>
-        <p className={'text-gray-500'}>{`I'm happy to answer any questions you have or provide you with an estimate. Just send me a message in the form below with any questions you may have.`}</p>
+      <div className={'flex w-full flex-col gap-4 rounded-2xl bg-white p-5 xl:w-1/2'}>
+        <p
+          className={
+            'text-gray-500'
+          }>{`I'm happy to answer any questions you have or provide you with an estimate. Just send me a message in the form below with any questions you may have.`}</p>
         <div className={'flex justify-between px-2'}>
           {contacts.map(({link, content}, idx) => (
             <Link
               key={'link-' + idx}
               href={link}
-              className={'text-gray-500 hover:underline'}
-            >
+              className={'text-gray-500 hover:underline'}>
               {content}
             </Link>
           ))}
@@ -91,8 +100,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Vladimir Antin | Full Stack Developer',
-    description:
-      'Get in touch for freelance work, collaboration, and technical consulting.',
+    description: 'Get in touch for freelance work, collaboration, and technical consulting.',
     images: [defaultOgImage],
   },
 };

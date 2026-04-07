@@ -50,24 +50,28 @@ const projectSchema = {
 
 const NgMultiSelect = () => {
   return (
-    <section className={'bg-white w-full xl:w-3/5 rounded-2xl mx-2'} aria-labelledby={'ng-multiselect-title'}>
+    <section
+      className={'mx-2 w-full rounded-2xl bg-white xl:w-3/5'}
+      aria-labelledby={'ng-multiselect-title'}>
       <JsonLd data={projectSchema} />
-      <div className={'flex justify-between items-center my-5 mx-2'}>
+      <div className={'mx-2 my-5 flex items-center justify-between'}>
         <div></div>
-        <h1 id={'ng-multiselect-title'} className={'text-center text-2xl font-bold m-2'}>ng-multiselect</h1>
-        <div className={'flex justify-end items-center'}>
+        <h1
+          id={'ng-multiselect-title'}
+          className={'m-2 text-center text-2xl font-bold'}>
+          ng-multiselect
+        </h1>
+        <div className={'flex items-center justify-end'}>
           {links.map(({href, external, Icon, title}) => (
             <Link
               href={href}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer noopener' : undefined}
-              className={'p-2 rounded-2xl grayscale hover:grayscale-0 hover:scale-125 duration-300'}
-              key={'href-' + href}
-            >
+              className={'rounded-2xl p-2 grayscale duration-300 hover:scale-125 hover:grayscale-0'}
+              key={'href-' + href}>
               <Tooltip
                 content={title}
-                className={'text-white bg-black rounded-2xl px-2 py-1'}
-              >
+                className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                 <Icon />
               </Tooltip>
             </Link>
@@ -76,8 +80,9 @@ const NgMultiSelect = () => {
       </div>
       <div className={'px-4 pb-4 text-gray-700'}>
         <p>
-          <strong>ng-multiselect</strong> is an Angular multiselect dropdown component focused on easy integration,
-          reusable UI behavior, and a practical developer experience for real-world Angular applications.
+          <strong>ng-multiselect</strong> is an Angular multiselect dropdown component focused on
+          easy integration, reusable UI behavior, and a practical developer experience for
+          real-world Angular applications.
         </p>
       </div>
       <IframeClient src={'https://ng-multiselect.netlify.app/'} />
@@ -104,7 +109,9 @@ export const metadata = {
     title: 'ng-multiselect | Angular Multiselect Dropdown by Vladimir Antin',
     description: 'Open-source Angular multiselect dropdown library with live demo.',
     url: `${siteUrl}/projects/ng-multiselect`,
-    images: [{ url: '/images/angular-website.png', width: 1200, height: 630, alt: 'ng-multiselect preview' }],
+    images: [
+      {url: '/images/angular-website.png', width: 1200, height: 630, alt: 'ng-multiselect preview'},
+    ],
   },
   twitter: {
     card: 'summary_large_image',

@@ -17,28 +17,31 @@ const links = [
 const References = () => {
   return (
     <section aria-labelledby={'profiles-heading'}>
-      <blockquote className={'text-white text-3xl text-wrap w-2/3'} cite={'https://blog.codinghorror.com/the-principle-of-least-power/'}>
+      <blockquote
+        className={'w-2/3 text-wrap text-3xl text-white'}
+        cite={'https://blog.codinghorror.com/the-principle-of-least-power/'}>
         {motivation.text}
       </blockquote>
-      <p className={'text-gray-500 text-2xl mb-10'}>{motivation.author}</p>
+      <p className={'mb-10 text-2xl text-gray-500'}>{motivation.author}</p>
       <div>
-        <h2 id={'profiles-heading'} className={'sr-only'}>Professional profiles</h2>
+        <h2
+          id={'profiles-heading'}
+          className={'sr-only'}>
+          Professional profiles
+        </h2>
         <Tag
           tagName={'links'}
-          className={'text-2xl'}
-        >
+          className={'text-2xl'}>
           {links.map(({name, link}) => (
             <Fragment key={name}>
               <Tag
                 tagName={'link'}
-                containerClass={'flex pl-5'}
-              >
+                containerClass={'flex pl-5'}>
                 <a
-                  className="cursor-pointer text-white font-bold hover:underline"
+                  className="cursor-pointer font-bold text-white hover:underline"
                   href={link}
                   target="_blank"
-                  rel="me noreferrer"
-                >
+                  rel="me noreferrer">
                   {name}
                 </a>
               </Tag>

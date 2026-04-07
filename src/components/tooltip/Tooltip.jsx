@@ -3,7 +3,7 @@
 import {memo} from 'react';
 import Tippy from '@tippyjs/react';
 
-const Tooltip = (props) => {
+const Tooltip = props => {
   return <Tippy {...props} />;
 };
 

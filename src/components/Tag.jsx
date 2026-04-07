@@ -3,7 +3,14 @@
 import {memo} from 'react';
 import {cn} from '@/utils/CN';
 
-const Tag = ({tagName = '', containerClass = '', className = '', startClass = '', endClass = '', children}) => {
+const Tag = ({
+  tagName = '',
+  containerClass = '',
+  className = '',
+  startClass = '',
+  endClass = '',
+  children,
+}) => {
   return (
     <div className={containerClass}>
       <p className={cn('italic text-gray-500', startClass, className)}>

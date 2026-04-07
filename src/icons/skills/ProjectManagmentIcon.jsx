@@ -6,8 +6,7 @@ const ProjectManagementIcon = ({width = 24, height = 24}) => {
       height={height}
       viewBox="0 0 64 64"
       width={width}
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <g id="Computer-Engineer-Gear-Monitor-Construction">
         <path
           d="m53 17v24h-50v-24a4 4 0 0 1 4-4h42a4 4 0 0 1 4 4z"

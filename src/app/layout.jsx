@@ -39,9 +39,23 @@ const personSchema = {
   },
   sameAs: socialProfiles,
   knowsAbout: [
-    'Java', 'Spring Boot', 'Micronaut', 'JavaScript', 'TypeScript',
-    'Angular', 'React', 'Next.js', 'NestJS', 'Node.js', 'React Native',
-    'MongoDB', 'MySQL', 'PostgreSQL', 'REST API', 'GraphQL', 'Docker',
+    'Java',
+    'Spring Boot',
+    'Micronaut',
+    'JavaScript',
+    'TypeScript',
+    'Angular',
+    'React',
+    'Next.js',
+    'NestJS',
+    'Node.js',
+    'React Native',
+    'MongoDB',
+    'MySQL',
+    'PostgreSQL',
+    'REST API',
+    'GraphQL',
+    'Docker',
   ],
 };
 
@@ -154,15 +168,14 @@ export default function RootLayout({children}) {
         style={{
           backgroundImage: `url('/images/bg.png')`,
         }}
-        suppressHydrationWarning
-      >
+        suppressHydrationWarning>
         <JsonLd data={websiteSchema} />
         <JsonLd data={personSchema} />
         <JsonLd data={organizationSchema} />
         <Particles />
         <Header />
         <MobileNavigation />
-        <main className={'flex flex-col xl:flex-row min-h-[80vh] mx-4 xl:mx-0'}>
+        <main className={'mx-4 flex min-h-[80vh] flex-col xl:mx-0 xl:flex-row'}>
           <Navigation />
           {children}
         </main>
