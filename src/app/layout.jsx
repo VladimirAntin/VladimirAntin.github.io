@@ -1,5 +1,4 @@
 import {Inter} from 'next/font/google';
-import './index.css';
 import Particles from '@/particles/Particles.jsx';
 import Header from '@/components/navigation/Header';
 import {cn} from '@/utils/CN';
@@ -8,6 +7,7 @@ import Footer from '@/components/navigation/Footer';
 import MobileNavigation from '@/components/navigation/MobileNavigation';
 import JsonLd from '@/components/seo/JsonLd';
 import {contact, defaultOgImage, siteName, siteUrl, socialProfiles} from '@/data/seo';
+import './index.css';
 
 const inter = Inter({subsets: ['latin']});
 
