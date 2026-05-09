@@ -5,11 +5,31 @@ import {type Variants, motion} from 'framer-motion';
 const techStack = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Micronaut', 'PHP · Symfony', 'Go · Fiber', 'NestJS'],
+    items: [
+      'Java',
+      'Spring Boot',
+      'Micronaut',
+      'Quarkus',
+      'PHP · Symfony',
+      'Go · Fiber',
+      'Javascript · Node.js',
+      'NestJS',
+      'Python',
+      'FastAPI',
+      'Flask',
+    ],
   },
   {
     category: 'Frontend',
-    items: ['TypeScript', 'Angular', 'React', 'Next.js', 'Nuxt.js', 'React Native'],
+    items: ['TypeScript', 'Angular', 'React', 'Next.js', 'Nuxt.js'],
+  },
+  {
+    category: 'Mobile',
+    items: ['TypeScript', 'React Native', 'Expo'],
+  },
+  {
+    category: 'Ai',
+    items: ['ChatGPT', 'Claude Code', 'Gemini', 'Github Copilot'],
   },
 ];
 
