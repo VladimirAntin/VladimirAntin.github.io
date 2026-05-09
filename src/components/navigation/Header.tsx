@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <Link
         className={'mb-20 flex h-[10vh] flex-row items-center gap-2 xl:mb-0'}
-        href={'/'}
+        href={'/#home'}
         aria-label={'Go to Vladimir Antin home page'}>
         <Image
           width={100}
@@ -17,8 +17,8 @@ const Header = () => {
           priority
         />
         <div>
-          <p className={'text-2xl font-bold text-white'}>Vladimir Antin</p>
-          <p className={'text-xl font-medium text-gray-400'}>Software Engineer</p>
+          <p className={'text-2xl font-bold text-white'}>{'Vladimir Antin'}</p>
+          <p className={'text-xl font-medium text-gray-400'}>{'Software Engineer'}</p>
         </div>
       </Link>
     </header>

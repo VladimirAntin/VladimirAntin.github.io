@@ -1,10 +1,16 @@
 'use client';
 import {Controller, useForm} from 'react-hook-form';
-import {cn} from '@/utils/CN.js';
+import {cn} from '@/utils/CN';
 import SendIcon from '@/icons/SendIcon.jsx';
 import {Fragment, memo} from 'react';
 import {closeSnackbar, enqueueSnackbar, SnackbarProvider} from 'notistack';
-import {sendMessage} from '@/server/ContactMeApi.js';
+import {sendMessage} from '@/server/ContactMeApi';
+
+type ContactFormValues = {
+  email: string;
+  name: string;
+  message: string;
+};
 
 const formRules = {
   email: {
@@ -27,7 +33,7 @@ const formRules = {
 };
 
 const ContactMeForm = () => {
-  const form = useForm({
+  const form = useForm<ContactFormValues>({
     defaultValues: {
       email: '',
       name: '',
@@ -37,7 +43,7 @@ const ContactMeForm = () => {
 
   const {control, handleSubmit} = form;
 
-  const onSubmit = data => {
+  const onSubmit = (data: ContactFormValues) => {
     sendMessage(data).then(() => {
       enqueueSnackbar('Thanks! Message has been sent.', {
         variant: 'default',
@@ -48,7 +54,7 @@ const ContactMeForm = () => {
             <button
               onClick={() => closeSnackbar(key)}
               className={'text-purple-600'}>
-              Ok
+              {'Ok'}
             </button>
           </Fragment>
         ),
@@ -67,9 +73,9 @@ const ContactMeForm = () => {
           <div>
             <div className={'flex flex-row gap-2 rounded-2xl bg-gray-300'}>
               <label
-                htmlFor="name"
+                htmlFor={'name'}
                 className={'px-2 py-1 font-medium text-black'}>
-                Name
+                {'Name'}
               </label>
               <input
                 {...field}
@@ -92,9 +98,9 @@ const ContactMeForm = () => {
           <div>
             <div className={'flex flex-row gap-2 rounded-2xl bg-gray-300'}>
               <label
-                htmlFor="email"
+                htmlFor={'email'}
                 className={'px-2 py-1 font-medium text-black'}>
-                Email
+                {'Email'}
               </label>
               <input
                 {...field}
@@ -117,9 +123,9 @@ const ContactMeForm = () => {
           <div>
             <div className={'flex flex-col gap-2 rounded-2xl bg-gray-300'}>
               <label
-                htmlFor="message"
+                htmlFor={'message'}
                 className={'px-2 py-1 font-medium text-black'}>
-                Message
+                {'Message'}
               </label>
               <textarea
                 {...field}
@@ -141,7 +147,7 @@ const ContactMeForm = () => {
           'group flex justify-center gap-2 rounded-2xl bg-gray-300 p-2 text-black hover:bg-black hover:text-white'
         }
         onClick={handleSubmit(onSubmit)}>
-        Send
+        {'Send'}
         <SendIcon className={'stroke-black group-hover:stroke-white'} />
       </button>
     </div>

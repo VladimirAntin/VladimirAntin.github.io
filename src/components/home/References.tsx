@@ -27,7 +27,7 @@ const References = () => {
         <h2
           id={'profiles-heading'}
           className={'sr-only'}>
-          Professional profiles
+          {'Professional profiles'}
         </h2>
         <Tag
           tagName={'links'}
@@ -38,10 +38,10 @@ const References = () => {
                 tagName={'link'}
                 containerClass={'flex pl-5'}>
                 <a
-                  className="cursor-pointer font-bold text-white hover:underline"
+                  className={'cursor-pointer font-bold text-white hover:underline'}
                   href={link}
-                  target="_blank"
-                  rel="me noreferrer">
+                  target={'_blank'}
+                  rel={'me noreferrer'}>
                   {name}
                 </a>
               </Tag>

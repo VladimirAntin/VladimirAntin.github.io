@@ -2,7 +2,12 @@
 import {memo} from 'react';
 import {TypeAnimation} from 'react-type-animation';
 
-const Typing = ({text, onDone = () => {}}) => {
+type TypingProps = {
+  text: string;
+  onDone?: () => void;
+};
+
+const Typing = ({text, onDone = () => {}}: TypingProps) => {
   return (
     <TypeAnimation
       sequence={[text, onDone]}

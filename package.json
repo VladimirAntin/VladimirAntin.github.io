@@ -17,6 +17,7 @@
     "@tsparticles/react": "3.0.0",
     "@tsparticles/slim": "3.9.1",
     "clsx": "2.1.1",
+    "framer-motion": "^12.38.0",
     "next": "16.2.3",
     "notistack": "3.0.2",
     "react": "19.2.4",

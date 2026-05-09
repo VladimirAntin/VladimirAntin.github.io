@@ -1,5 +1,5 @@
 import {memo} from 'react';
-import {cn} from '@/utils/CN.js';
+import {cn} from '@/utils/CN';
 
 const SendIcon = ({className = '', color = '#000', width = 24, height = 24}) => {
   return (

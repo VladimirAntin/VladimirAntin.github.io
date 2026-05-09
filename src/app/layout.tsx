@@ -1,4 +1,6 @@
 import {Inter} from 'next/font/google';
+import type {Metadata} from 'next';
+import type {ReactNode} from 'react';
 import Particles from '@/particles/Particles.jsx';
 import Header from '@/components/navigation/Header';
 import {cn} from '@/utils/CN';
@@ -68,7 +70,7 @@ const organizationSchema = {
   sameAs: socialProfiles,
 };
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
@@ -160,9 +162,9 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({children}) {
+export default function RootLayout({children}: {children: ReactNode}) {
   return (
-    <html lang="en">
+    <html lang={'en'}>
       <body
         className={cn(inter.className)}
         style={{

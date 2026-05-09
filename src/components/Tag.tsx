@@ -1,7 +1,16 @@
 'use client';
 
-import {memo} from 'react';
+import {type ReactNode, memo} from 'react';
 import {cn} from '@/utils/CN';
+
+type TagProps = {
+  tagName?: string;
+  containerClass?: string;
+  className?: string;
+  startClass?: string;
+  endClass?: string;
+  children?: ReactNode;
+};
 
 const Tag = ({
   tagName = '',
@@ -10,15 +19,15 @@ const Tag = ({
   startClass = '',
   endClass = '',
   children,
-}) => {
+}: TagProps) => {
   return (
     <div className={containerClass}>
       <p className={cn('italic text-gray-500', startClass, className)}>
-        <i>&lt;{tagName}&gt;</i>
+        <i>{`<${tagName}>`}</i>
       </p>
       <div className={className}>{children}</div>
       <p className={cn('italic text-gray-500', endClass, className)}>
-        <i>&lt;/{tagName}&gt;</i>
+        <i>{`</${tagName}>`}</i>
       </p>
     </div>
   );

@@ -14,21 +14,27 @@ const TypeState = {
   JAVASCRIPT: 9,
   SE0: 10,
   NATIVE: 11,
+} as const;
+
+type InformationItem = {
+  tag: string;
+  value: string;
+  id: number;
 };
 
-const location = [
+const location: InformationItem[] = [
   {tag: 'City', value: 'Novi Sad', id: TypeState.CITY},
   {tag: 'Country', value: 'Serbia', id: TypeState.COUNTRY},
 ];
 
-const backend = [
+const backend: InformationItem[] = [
   {tag: 'Java', value: 'Spring boot, Micronaut', id: TypeState.JAVA},
   {tag: 'PHP', value: 'Symfony', id: TypeState.PHP},
   {tag: 'Python', value: 'Flask', id: TypeState.PYTHON},
   {tag: 'GO lang', value: 'Fiber', id: TypeState.GO},
   {tag: 'Javascript', value: 'NestJS', id: TypeState.JS_BACK},
 ];
-const frontend = [
+const frontend: InformationItem[] = [
   {tag: 'typescript', value: 'Angular, VueJS, ReactJS', id: TypeState.TYPESCRIPT},
   {tag: 'javascript', value: 'VueJS, ReactJS, VanillaJS, jQuery', id: TypeState.JAVASCRIPT},
   {tag: 'SEO', value: 'NextJS, NuxtJS', id: TypeState.SE0},
@@ -36,7 +42,7 @@ const frontend = [
 ];
 
 const Information = () => {
-  const [type, setType] = useState();
+  const [type, setType] = useState<number>(0);
 
   return (
     <Tag tagName={'Information'}>
