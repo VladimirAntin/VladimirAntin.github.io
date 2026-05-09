@@ -8,25 +8,23 @@ export default {
       value: '#ffffff',
     },
     links: {
-      color: '#ffffff',
-      enable: true,
+      enable: false,
     },
     move: {
       enable: true,
-      speed: 1,
+      speed: 0.6,
     },
     number: {
-      value: 50,
+      value: 30,
+    },
+    opacity: {
+      value: { min: 0.1, max: 0.5 },
+    },
+    size: {
+      value: { min: 1, max: 2 },
     },
     shape: {
       type: 'circle',
-      stroke: {
-        width: 0,
-        color: '#000',
-      },
-      polygon: {
-        nb_sides: 8,
-      },
     },
   },
   detectRetina: true,

@@ -1,7 +1,6 @@
-'use client';
-import {memo} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 const Header = () => {
   return (
     <header>
@@ -25,4 +24,4 @@ const Header = () => {
   );
 };
 
-export default memo(Header);
+export default Header;

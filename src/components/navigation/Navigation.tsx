@@ -18,6 +18,12 @@ const navItems: NavItem[] = [
   {title: 'Contact me', href: '#contact', Icon: AskIcon},
 ];
 
+// Variant propagates from parent motion.a whileHover → child motion.span
+const labelVariants = {
+  rest: {opacity: 0, maxWidth: 0, marginLeft: 0},
+  hovered: {opacity: 1, maxWidth: 160, marginLeft: 8},
+};
+
 const Navigation = () => {
   const [activeHash, setActiveHash] = useState('#home');
 
@@ -33,32 +39,31 @@ const Navigation = () => {
       <nav className={'flex w-full flex-col gap-5'}>
         {navItems.map(({href, title, Icon}, idx) => {
           const isActive = activeHash === href;
-
           return (
             <motion.a
-              whileHover={{width: '50%'}}
-              transition={{duration: 0.2}}
-              href={href}
               key={'nav-item-' + idx}
+              href={href}
+              initial={'rest'}
+              whileHover={'hovered'}
+              animate={'rest'}
+              transition={{duration: 0.18, ease: 'easeOut'}}
               className={cn(
-                'group flex h-14 w-min items-center justify-between gap-1 rounded-r-full bg-white px-3 text-black hover:w-1/2',
-                {
-                  'bg-black': isActive,
-                },
+                'flex h-14 w-min items-center rounded-r-full bg-white px-3 text-black',
+                {'bg-black': isActive},
               )}>
               <Icon
                 width={32}
                 height={32}
                 color={isActive ? '#fff' : '#000'}
               />
-              <motion.p
-                initial={{opacity: 0, x: -16}}
-                whileHover={{opacity: 1, x: 0}}
-                className={cn('hidden font-bold group-hover:block', {
+              <motion.span
+                variants={labelVariants}
+                transition={{duration: 0.18, ease: 'easeOut'}}
+                className={cn('overflow-hidden whitespace-nowrap font-bold', {
                   'text-white': isActive,
                 })}>
                 {title}
-              </motion.p>
+              </motion.span>
             </motion.a>
           );
         })}

@@ -1,132 +1,81 @@
 'use client';
-import {Fragment, memo, useState} from 'react';
-import Tag from '@/components/Tag';
-import Typing from '@/components/Typing';
-const TypeState = {
-  CITY: 1,
-  COUNTRY: 2,
-  JAVA: 3,
-  PHP: 4,
-  PYTHON: 5,
-  GO: 6,
-  JS_BACK: 7,
-  TYPESCRIPT: 8,
-  JAVASCRIPT: 9,
-  SE0: 10,
-  NATIVE: 11,
-} as const;
+import {memo} from 'react';
+import {type Variants, motion} from 'framer-motion';
 
-type InformationItem = {
-  tag: string;
-  value: string;
-  id: number;
+const techStack = [
+	{
+		category: 'Backend',
+		items: ['Java', 'Spring Boot', 'Micronaut', 'PHP · Symfony', 'Go · Fiber', 'NestJS'],
+	},
+	{
+		category: 'Frontend',
+		items: ['TypeScript', 'Angular', 'React', 'Next.js', 'Nuxt.js', 'React Native'],
+	},
+];
+
+const container: Variants = {
+  hidden: {},
+  show: {transition: {staggerChildren: 0.09, delayChildren: 0.05}},
 };
 
-const location: InformationItem[] = [
-  {tag: 'City', value: 'Novi Sad', id: TypeState.CITY},
-  {tag: 'Country', value: 'Serbia', id: TypeState.COUNTRY},
-];
-
-const backend: InformationItem[] = [
-  {tag: 'Java', value: 'Spring boot, Micronaut', id: TypeState.JAVA},
-  {tag: 'PHP', value: 'Symfony', id: TypeState.PHP},
-  {tag: 'Python', value: 'Flask', id: TypeState.PYTHON},
-  {tag: 'GO lang', value: 'Fiber', id: TypeState.GO},
-  {tag: 'Javascript', value: 'NestJS', id: TypeState.JS_BACK},
-];
-const frontend: InformationItem[] = [
-  {tag: 'typescript', value: 'Angular, VueJS, ReactJS', id: TypeState.TYPESCRIPT},
-  {tag: 'javascript', value: 'VueJS, ReactJS, VanillaJS, jQuery', id: TypeState.JAVASCRIPT},
-  {tag: 'SEO', value: 'NextJS, NuxtJS', id: TypeState.SE0},
-  {tag: 'Native', value: 'React Native', id: TypeState.NATIVE},
-];
+const fadeUp: Variants = {
+  hidden: {opacity: 0, y: 22},
+  show: {opacity: 1, y: 0, transition: {duration: 0.4, ease: 'easeOut' as const}},
+};
 
 const Information = () => {
-  const [type, setType] = useState<number>(0);
+	return (
+		<motion.div
+			initial={'hidden'}
+			animate={'show'}
+			variants={container}
+			className={'flex flex-col gap-8 py-8 pl-4 xl:pl-0'}>
+			<motion.div variants={fadeUp}>
+				<p className={'text-sm font-semibold uppercase tracking-widest text-gray-400'}>
+					{'Full Stack Developer'}
+				</p>
+				<h1
+					id={'home-hero-title'}
+					className={'mt-1 text-5xl font-extrabold leading-tight text-white xl:text-6xl'}>
+					{'Vladimir'}
+					<br />
+					{'Antin'}
+				</h1>
+				<p className={'mt-3 text-base text-gray-400'}>{'📍 Novi Sad, Serbia'}</p>
+			</motion.div>
 
-  return (
-    <Tag tagName={'Information'}>
-      <Tag
-        tagName={'Position'}
-        className={'pl-5'}>
-        <h1
-          id={'home-hero-title'}
-          className={'py-5 pl-5 text-3xl font-bold text-white'}>
-          <Typing
-            text={'Software Engineer'}
-            onDone={() => setType(TypeState.CITY)}
-          />
-        </h1>
-      </Tag>
+			<motion.p
+				variants={fadeUp}
+				className={'max-w-md text-lg leading-relaxed text-gray-300'}>
+				{
+					'Building scalable web & mobile solutions with Java, Spring Boot, and TypeScript. 5+ years across the full stack.'
+				}
+			</motion.p>
 
-      <Tag
-        tagName={'Location'}
-        className={'pl-5'}>
-        <div className={'pl-5'}>
-          {location.map(({tag, value, id}) => (
-            <Fragment key={tag}>
-              <Tag
-                tagName={tag}
-                containerClass={'flex items-center'}>
-                <p className={'px-1 text-3xl text-white'}>
-                  {type >= id ? (
-                    <Typing
-                      text={value}
-                      onDone={() => setType(id + 1)}
-                    />
-                  ) : null}
-                </p>
-              </Tag>
-            </Fragment>
-          ))}
-        </div>
-      </Tag>
-      <Tag
-        tagName={'Full-Stack-Developer'}
-        className={'pl-5'}>
-        <Tag
-          tagName={'Backend'}
-          className={'pl-5'}>
-          {backend.map(({tag, value, id}) => (
-            <Fragment key={tag}>
-              <Tag
-                tagName={tag}
-                className={'py-1 pl-5'}>
-                <p className={'pl-5 text-3xl text-white'}>
-                  {type >= id ? (
-                    <Typing
-                      text={value}
-                      onDone={() => setType(id + 1)}
-                    />
-                  ) : null}
-                </p>
-              </Tag>
-            </Fragment>
-          ))}
-        </Tag>
-        <Tag
-          tagName={'Frontend'}
-          className={'pl-5'}>
-          {frontend.map(({tag, value, id}) => (
-            <Fragment key={tag}>
-              <Tag
-                tagName={tag}
-                className={'py-1 pl-5'}>
-                <p className={'pl-5 text-3xl text-white'}>
-                  {type >= id ? (
-                    <Typing
-                      text={value}
-                      onDone={() => setType(id + 1)}
-                    />
-                  ) : null}
-                </p>
-              </Tag>
-            </Fragment>
-          ))}
-        </Tag>
-      </Tag>
-    </Tag>
-  );
+			<div className={'flex flex-col gap-5'}>
+				{techStack.map(({category, items}) => (
+					<motion.div
+						key={category}
+						variants={fadeUp}>
+						<p className={'mb-2 text-xs font-bold uppercase tracking-widest text-gray-500'}>
+							{category}
+						</p>
+						<div className={'flex flex-wrap gap-2'}>
+							{items.map(tech => (
+								<span
+									key={tech}
+									className={
+										'rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-gray-300 backdrop-blur-sm'
+									}>
+									{tech}
+								</span>
+							))}
+						</div>
+					</motion.div>
+				))}
+			</div>
+		</motion.div>
+	);
 };
 
 export default memo(Information);
