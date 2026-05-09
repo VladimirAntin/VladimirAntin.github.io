@@ -45,4 +45,3 @@ const FadeIn = ({children, className, delay = 0, direction = 'up'}: FadeInProps)
 );
 
 export default memo(FadeIn);
-

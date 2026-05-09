@@ -147,7 +147,7 @@ const SpringCore = () => {
                   className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                   <div
                     className={
-                      'max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500'
+                      'hide-scrollbar max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hover:text-blue-500'
                     }
                     onClick={() => copyText(selectedYourCode?.text)}>
                     <code>
@@ -170,7 +170,7 @@ const SpringCore = () => {
                   className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                   <div
                     className={
-                      'max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500'
+                      'hide-scrollbar max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hover:text-blue-500'
                     }
                     onClick={() => copyText(selectedGenerator?.text)}>
                     <code>
@@ -192,7 +192,7 @@ const SpringCore = () => {
                   className={'rounded-2xl bg-black px-2 py-1 text-white'}>
                   <div
                     className={
-                      'max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hide-scrollbar hover:text-blue-500'
+                      'hide-scrollbar max-w-full cursor-pointer overflow-auto text-[10px] text-purple-500 hover:text-blue-500'
                     }
                     onClick={() => copyText(selectedDocs?.text)}>
                     <code>

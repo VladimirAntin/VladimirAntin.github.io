@@ -73,7 +73,7 @@ const Home = () => {
   ];
 
   return (
-    <div className={'mx-auto flex w-full max-w-6xl flex-col items-center gap-28 px-4 pb-20 xl:px-8'}>
+    <div className={'flex w-full flex-col items-center gap-28 px-6 pb-20 xl:px-12'}>
       <JsonLd data={homePageSchema} />
 
       {/* ── Hero ──────────────────────────────────────── */}
@@ -100,7 +100,10 @@ const Home = () => {
           aria-labelledby={'cv-title'}>
           <div className={'overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-black/5'}>
             {/* Browser-chrome header */}
-            <div className={'flex items-center justify-between border-b border-gray-200 bg-gray-50 px-6 py-3'}>
+            <div
+              className={
+                'flex items-center justify-between border-b border-gray-200 bg-gray-50 px-6 py-3'
+              }>
               <div className={'flex items-center gap-3'}>
                 <span className={'size-3 rounded-full bg-red-400'} />
                 <span className={'size-3 rounded-full bg-yellow-400'} />
@@ -112,10 +115,15 @@ const Home = () => {
                 </h2>
               </div>
               <a
-                className={'flex items-center gap-1.5 rounded-lg bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-black'}
+                className={
+                  'flex items-center gap-1.5 rounded-lg bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-black'
+                }
                 href={'/Vladimir-Antin-CV.pdf'}
                 download>
-                <DownloadIcon width={13} height={13} />
+                <DownloadIcon
+                  width={13}
+                  height={13}
+                />
                 {'Download'}
               </a>
             </div>
@@ -140,11 +148,16 @@ const Home = () => {
               {"Let's work together"}
             </h2>
             <p className={'text-base text-gray-400'}>
-              {'Available for freelance projects, long-term collaboration, and technical consulting.'}
+              {
+                'Available for freelance projects, long-term collaboration, and technical consulting.'
+              }
             </p>
           </div>
 
-          <div className={'flex w-full flex-col items-center gap-6 xl:flex-row xl:items-start xl:justify-center xl:gap-16'}>
+          <div
+            className={
+              'flex w-full flex-col items-center gap-6 xl:flex-row xl:items-start xl:justify-center xl:gap-16'
+            }>
             {/* Profile card */}
             <div className={'flex flex-col items-center gap-4'}>
               <Image

@@ -8,4 +8,3 @@ const CVViewer = dynamic(() => import('@components/pdf/CVViewer'), {
 });
 
 export default CVViewer;
-

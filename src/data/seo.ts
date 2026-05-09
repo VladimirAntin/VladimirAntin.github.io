@@ -23,6 +23,4 @@ export type RouteEntry = {
   priority: number;
 };
 
-export const routeEntries: RouteEntry[] = [
-  {url: '/', changeFrequency: 'weekly', priority: 1},
-];
+export const routeEntries: RouteEntry[] = [{url: '/', changeFrequency: 'weekly', priority: 1}];

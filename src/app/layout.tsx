@@ -177,7 +177,7 @@ export default function RootLayout({children}: {children: ReactNode}) {
         <Particles />
         <Header />
         <MobileNavigation />
-        <main className={'mx-4 flex min-h-[80vh] flex-col xl:mx-0 xl:flex-row'}>
+        <main className={'min-h-[80vh] xl:pl-[20vw]'}>
           <Navigation />
           {children}
         </main>

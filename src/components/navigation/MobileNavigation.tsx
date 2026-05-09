@@ -44,7 +44,7 @@ const MobileNavigation = () => {
         ) : null}
       </AnimatePresence>
       <div
-        className={cn('fixed bottom-10 right-10 z-50 flex flex-col items-end xl:hidden')}
+        className={cn('fixed right-10 bottom-10 z-50 flex flex-col items-end xl:hidden')}
         onBlur={e => {
           if (!e.relatedTarget) {
             setOpened(false);

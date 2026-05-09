@@ -35,8 +35,12 @@ const Navigation = () => {
   }, []);
 
   return (
-    <div className={'mt-25 hidden w-[20vw] xl:flex'}>
-      <nav className={'flex w-full flex-col gap-5'}>
+    // fixed — always visible on the left on xl+, hidden on mobile
+    <div
+      className={
+        'fixed top-0 left-0 z-30 hidden h-screen w-[20vw] items-start pt-[calc(10vh+32px)] xl:flex'
+      }>
+      <nav className={'flex w-full flex-col gap-4'}>
         {navItems.map(({href, title, Icon}, idx) => {
           const isActive = activeHash === href;
           return (
@@ -48,20 +52,20 @@ const Navigation = () => {
               animate={'rest'}
               transition={{duration: 0.18, ease: 'easeOut'}}
               className={cn(
-                'flex h-14 w-min items-center rounded-r-full bg-white px-3 text-black',
-                {'bg-black': isActive},
+                'flex h-14 w-min items-center rounded-r-full px-3 transition-colors duration-150',
+                isActive
+                  ? 'bg-white text-black shadow-lg'
+                  : 'bg-white/10 text-white backdrop-blur-sm hover:bg-white/20',
               )}>
               <Icon
-                width={32}
-                height={32}
-                color={isActive ? '#fff' : '#000'}
+                width={28}
+                height={28}
+                color={isActive ? '#000' : '#fff'}
               />
               <motion.span
                 variants={labelVariants}
                 transition={{duration: 0.18, ease: 'easeOut'}}
-                className={cn('overflow-hidden whitespace-nowrap font-bold', {
-                  'text-white': isActive,
-                })}>
+                className={'overflow-hidden text-sm font-bold whitespace-nowrap'}>
                 {title}
               </motion.span>
             </motion.a>

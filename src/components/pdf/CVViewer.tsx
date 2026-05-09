@@ -8,6 +8,35 @@ type CVViewerProps = {
   onReady?: () => void;
 };
 
+const CVSkeleton = ({width, height}: {width: number; height: number}) => (
+  <div
+    className={'flex gap-5 px-6 py-6'}
+    style={{minHeight: height + 48}}>
+    {[0, 1].map(i => (
+      <div
+        key={i}
+        className={'shrink-0 animate-pulse rounded-lg bg-black/10 ring-1 ring-black/20'}
+        style={{width, height}}>
+        {/* Header block */}
+        <div className={'mx-8 mt-10 h-6 rounded bg-black/25'} />
+        <div className={'mx-16 mt-3 h-4 rounded bg-black/15'} />
+        {/* Divider */}
+        <div className={'mx-8 mt-6 h-px bg-black/20'} />
+        {/* Content lines */}
+        {[...Array(6)].map((_, j) => (
+          <div
+            key={j}
+            className={'mx-8 mt-5'}>
+            <div className={'mb-2 h-3 w-1/3 rounded bg-black/25'} />
+            <div className={'h-2 rounded bg-black/15'} />
+            <div className={'mt-1.5 h-2 w-4/5 rounded bg-black/15'} />
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
 const CVViewer = ({onReady}: CVViewerProps) => {
   const [numPages, setNumPages] = useState(0);
   const [pageHeight, setPageHeight] = useState(0);
@@ -54,7 +83,12 @@ const CVViewer = ({onReady}: CVViewerProps) => {
   return (
     <Document
       file={'/Vladimir-Antin-CV.pdf'}
-      loading={null}
+      loading={
+        <CVSkeleton
+          width={pageWidth}
+          height={Math.round(pageWidth * 1.414)}
+        />
+      }
       onLoadSuccess={handleLoadSuccess}>
       {/* Scroll container */}
       <div
@@ -63,11 +97,11 @@ const CVViewer = ({onReady}: CVViewerProps) => {
         style={{minHeight: pageHeight ? pageHeight + 48 : undefined}}>
         {pages}
       </div>
-      {numPages > 1 && (
+      {numPages > 1 ? (
         <p className={'pb-3 text-center text-xs text-gray-400'}>
           {'← Scroll horizontally to see all pages →'}
         </p>
-      )}
+      ) : null}
     </Document>
   );
 };

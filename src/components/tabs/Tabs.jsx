@@ -57,13 +57,13 @@ const Tabs = ({
   return (
     <div className="flex gap-2">
       <button
-        className={cn('bottom-0 left-0 top-0 z-20 hidden bg-white', {block: canScroll.left})}
+        className={cn('top-0 bottom-0 left-0 z-20 hidden bg-white', {block: canScroll.left})}
         onClick={() => handleScroll(1)}>
         <ArrowIcon />
       </button>
       <div
         className={cn(
-          'z-10 flex max-w-full gap-2 overflow-auto border-b border-purple-500 hide-scrollbar',
+          'hide-scrollbar z-10 flex max-w-full gap-2 overflow-auto border-b border-purple-500',
           className,
         )}
         ref={tabsRef}>
@@ -83,7 +83,7 @@ const Tabs = ({
         })}
       </div>
       <button
-        className={cn('bottom-0 right-0 top-0 z-20 hidden bg-white', {block: canScroll.right})}
+        className={cn('top-0 right-0 bottom-0 z-20 hidden bg-white', {block: canScroll.right})}
         onClick={() => handleScroll(2)}>
         <ArrowIcon rotate={180} />
       </button>
