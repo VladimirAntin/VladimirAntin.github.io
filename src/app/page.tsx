@@ -32,7 +32,7 @@ const homePageSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Full Stack Developer Portfolio',
+  title: 'Vladimir Antin | Full Stack Developer Portfolio',
   description:
     'Vladimir Antin is a full stack software engineer from Novi Sad, Serbia. Experienced in Java, Spring Boot, Angular, React, Next.js, NestJS, and mobile development with React Native.',
   keywords: [
